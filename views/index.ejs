@@ -1,3 +1,4 @@
+
 <!-- index -->
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -7,6 +8,10 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard v2</h1>
+          
+
+            <%- areas[0].color %>
+         
           </div><!-- /.col -->
           <div class="col-sm-6">
             <!-- <ol class="breadcrumb float-sm-right">
@@ -24,12 +29,16 @@
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
+
+
+          <% areas.forEach(element => {  %>
+
           <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+            <div class="info-box bg-<%= element.color %>">
+              <span class="info-box-icon bg-blue-dark"><i class="<%= element.icon %>"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Environmental</span>
+                <span class="info-box-text"><%= element.area %></span>
                 <span class="info-box-number">
                   10
                   <small>%</small>
@@ -40,48 +49,15 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Social</span>
-                <span class="info-box-number">10%</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+              <%               });   %>
           <!-- /.col -->
 
           <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
+         
 
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Desings</span>
-                <span class="info-box-number">10 %</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+    
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+        
           <!-- /.col -->
         </div>
         <!-- /.row -->

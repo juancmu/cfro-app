@@ -1,0 +1,109 @@
+[
+  {
+   "id": 1,
+   "area": "Desings",
+   "area_sp": "Diseños",
+   "color": "blue-dark",
+   "icon": "fa-solid fa-compass-drafting",
+   "color-icon": "red"
+  },
+  {
+   "id": 2,
+   "area": "Environmental",
+   "area_sp": "Ambiental",
+   "color": "red-deep",
+   "icon": "fa-solid fa-seedling",
+   "color-icon": "green"
+  },
+  {
+   "id": 3,
+   "area": "Social",
+   "area_sp": "Social",
+   "color": "yellow-live",
+   "icon": "fa-solid fa-people-arrows"
+  },
+  {
+   "id": 4,
+   "area": "Utilities",
+   "area_sp": "Redes",
+   "color": "green-lime",
+   "icon": "fa-solid fa-blender-phone"
+  },
+  {
+   "id": 5,
+   "area": "Permits",
+   "area_sp": "Tramites y Permisos",
+   "color": "blue-light",
+   "icon": "fa-solid fa-newspaper"
+  },
+  {
+   "id": 6,
+   "area": "Lands",
+   "area_sp": "Predial",
+   "color": "orange-live",
+   "icon": "fa-solid fa-panorama"
+  },
+  {
+   "id": 7,
+   "area": "PK5",
+   "area_sp": "PK5",
+   "color": "gray-dark",
+   "icon": "fa-solid fa-mountain-city"
+  },
+  {
+   "id": 8,
+   "area": "Corzo",
+   "area_sp": "Corzo",
+   "color": "teal",
+   "icon": "fa-solid fa-industry"
+  },
+  {
+   "id": 9,
+   "area": "Roads",
+   "area_sp": "Vias",
+   "color": "blue-dark",
+   "icon": "fa-solid fa-train-tram"
+  },
+  {
+   "id": 10,
+   "area": "Bridges",
+   "area_sp": "Puentes",
+   "color": "red-deep",
+   "icon": "fa-solid fa-bridge"
+  },
+  {
+   "id": 11,
+   "area": "Legal",
+   "area_sp": "Juridica",
+   "color": "yellow-live",
+   "icon": "fa-solid fa-scale-balanced"
+  },
+  {
+   "id": 12,
+   "area": "Budgets",
+   "area_sp": "Presupuestos",
+   "color": "green-lime",
+   "icon": "fa-solid fa-filter-circle-dollar"
+  },
+  {
+   "id": 13,
+   "area": "Quality",
+   "area_sp": "Calidad",
+   "color": "blue-light",
+   "icon": "fa-solid fa-check-double"
+  },
+  {
+   "id": 14,
+   "area": "Scheduling",
+   "area_sp": "Programacion",
+   "color": "orange-live",
+   "icon": "fa-solid fa-diagram-project"
+  },
+  {
+   "id": 15,
+   "area": "Maintenance and Operations",
+   "area_sp": "Operaciones y Mantenimiento",
+   "color": "gray-dark",
+   "icon": "fa-solid fa-trowel-bricks"
+  }
+ ]
