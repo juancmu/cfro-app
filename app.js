@@ -26,7 +26,7 @@ app.set('view engine', 'ejs')
 // Routes
 
 app.get('', (req, res) => {
-    res.render('index', { title: 'Home Page', areas: areas})
+    res.render('index', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light'})
 })
 
 
@@ -37,7 +37,7 @@ app.get('', (req, res) => {
 areas.forEach(element => {
     
     app.get(`/${element.area}`, (req, res) => {
-        res.render(element.area, { title: element.area, areas: areas})
+        res.render(element.area, { title: element.area, areas: areas, color: element.coloricon})
     })
 });
 

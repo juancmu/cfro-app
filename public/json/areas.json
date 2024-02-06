@@ -5,7 +5,7 @@
    "area_sp": "Diseños",
    "color": "blue-dark",
    "icon": "fa-solid fa-compass-drafting",
-   "color-icon": "red"
+   "coloricon": "text-danger"
   },
   {
    "id": 2,
@@ -13,97 +13,110 @@
    "area_sp": "Ambiental",
    "color": "red-deep",
    "icon": "fa-solid fa-seedling",
-   "color-icon": "green"
+   "coloricon": "text-success"
   },
   {
    "id": 3,
    "area": "Social",
    "area_sp": "Social",
    "color": "yellow-live",
-   "icon": "fa-solid fa-people-arrows"
+   "icon": "fa-solid fa-people-arrows",
+   "coloricon": "text-pink"
   },
   {
    "id": 4,
    "area": "Utilities",
    "area_sp": "Redes",
    "color": "green-lime",
-   "icon": "fa-solid fa-blender-phone"
+   "icon": "fa-solid fa-blender-phone",
+   "coloricon": "text-blue-dark"
   },
   {
    "id": 5,
    "area": "Permits",
    "area_sp": "Tramites y Permisos",
    "color": "blue-light",
-   "icon": "fa-solid fa-newspaper"
+   "icon": "fa-solid fa-newspaper",
+   "coloricon": "text-warning"
   },
   {
    "id": 6,
    "area": "Lands",
    "area_sp": "Predial",
    "color": "orange-live",
-   "icon": "fa-solid fa-panorama"
+   "icon": "fa-solid fa-panorama",
+   "coloricon": "text-info"
   },
   {
    "id": 7,
    "area": "PK5",
    "area_sp": "PK5",
    "color": "gray-dark",
-   "icon": "fa-solid fa-mountain-city"
+   "icon": "fa-solid fa-mountain-city",
+   "coloricon": "text-green-lime"
   },
   {
    "id": 8,
    "area": "Corzo",
    "area_sp": "Corzo",
    "color": "teal",
-   "icon": "fa-solid fa-industry"
+   "icon": "fa-solid fa-industry",
+   "coloricon": "text-teal"
   },
   {
    "id": 9,
    "area": "Roads",
    "area_sp": "Vias",
    "color": "blue-dark",
-   "icon": "fa-solid fa-train-tram"
+   "icon": "fa-solid fa-train-tram",
+   "coloricon": "text-orange-live"
   },
   {
    "id": 10,
    "area": "Bridges",
    "area_sp": "Puentes",
    "color": "red-deep",
-   "icon": "fa-solid fa-bridge"
+   "icon": "fa-solid fa-bridge",
+   "coloricon": "text-purple"
   },
   {
    "id": 11,
    "area": "Legal",
    "area_sp": "Juridica",
    "color": "yellow-live",
-   "icon": "fa-solid fa-scale-balanced"
+   "icon": "fa-solid fa-scale-balanced",
+   "coloricon": "text-cyan"
   },
   {
    "id": 12,
    "area": "Budgets",
    "area_sp": "Presupuestos",
    "color": "green-lime",
-   "icon": "fa-solid fa-filter-circle-dollar"
+   "icon": "fa-solid fa-filter-circle-dollar",
+   "coloricon": "text-blue-king"
   },
   {
    "id": 13,
    "area": "Quality",
    "area_sp": "Calidad",
    "color": "blue-light",
-   "icon": "fa-solid fa-check-double"
+   "icon": "fa-solid fa-check-double",
+   "coloricon": "text-red-deep"
   },
   {
    "id": 14,
    "area": "Scheduling",
    "area_sp": "Programacion",
    "color": "orange-live",
-   "icon": "fa-solid fa-diagram-project"
+   "icon": "fa-solid fa-diagram-project",
+   "coloricon": "text-light"
   },
   {
    "id": 15,
-   "area": "Maintenance and Operations",
+   "area": "Operations",
    "area_sp": "Operaciones y Mantenimiento",
    "color": "gray-dark",
-   "icon": "fa-solid fa-trowel-bricks"
+   "icon": "fa-solid fa-trowel-bricks",
+   "coloricon": "text-wine"
   }
  ]

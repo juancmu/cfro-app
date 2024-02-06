@@ -1,0 +1,128 @@
+[
+    {
+     "section": 1,
+     "pk_ini": 0,
+     "pk_end": 994,
+     "municipalities": "Bogota",
+     "long": 994
+    },
+    {
+     "section": 2,
+     "pk_ini": 994,
+     "pk_end": 3420,
+     "municipalities": "Bogota",
+     "long": 2426
+    },
+    {
+     "section": 3,
+     "pk_ini": 3420,
+     "pk_end": 5887,
+     "municipalities": "Bogota",
+     "long": 2467
+    },
+    {
+     "section": 4,
+     "pk_ini": 5887,
+     "pk_end": 7558,
+     "municipalities": "Bogota",
+     "long": 1671
+    },
+    {
+     "section": 5,
+     "pk_ini": 7558,
+     "pk_end": 8860,
+     "municipalities": "Bogota",
+     "long": 1302
+    },
+    {
+     "section": 6,
+     "pk_ini": 8860,
+     "pk_end": 10260,
+     "municipalities": "Bogota",
+     "long": 1400
+    },
+    {
+     "section": 7,
+     "pk_ini": 10260,
+     "pk_end": 11800,
+     "municipalities": "Bogota",
+     "long": 1540
+    },
+    {
+     "section": 8,
+     "pk_ini": 11800,
+     "pk_end": 14640,
+     "municipalities": "Bogota, Funza",
+     "long": 2840
+    },
+    {
+     "section": 9,
+     "pk_ini": 14640,
+     "pk_end": 16260,
+     "municipalities": "Funza",
+     "long": 1620
+    },
+    {
+     "section": 10,
+     "pk_ini": 16260,
+     "pk_end": 18180,
+     "municipalities": "Mosquera",
+     "long": 1920
+    },
+    {
+     "section": 11,
+     "pk_ini": 18180,
+     "pk_end": 20980,
+     "municipalities": "Mosquera",
+     "long": 2800
+    },
+    {
+     "section": 12,
+     "pk_ini": 20980,
+     "pk_end": 23000,
+     "municipalities": "Mosquera",
+     "long": 2020
+    },
+    {
+     "section": 13,
+     "pk_ini": 23000,
+     "pk_end": 24920,
+     "municipalities": "Mosquera, Madrid",
+     "long": 1920
+    },
+    {
+     "section": 14,
+     "pk_ini": 24920,
+     "pk_end": 26540,
+     "municipalities": "Madrid",
+     "long": 1620
+    },
+    {
+     "section": 15,
+     "pk_ini": 26540,
+     "pk_end": 30860,
+     "municipalities": "Madrid",
+     "long": 4320
+    },
+    {
+     "section": 16,
+     "pk_ini": 30860,
+     "pk_end": 35960,
+     "municipalities": "Madrid, Facatativa",
+     "long": 5100
+    },
+    {
+     "section": 17,
+     "pk_ini": 35960,
+     "pk_end": 37000,
+     "municipalities": "Facatativa",
+     "long": 1040
+    },
+    {
+     "section": 18,
+     "pk_ini": 37000,
+     "pk_end": 39660,
+     "municipalities": "Facatativa",
+     "long": 2660
+    }
+   ]

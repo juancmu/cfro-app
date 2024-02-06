@@ -1,15 +1,31 @@
-<li class="nav-item d-none d-sm-inline-block">
-    <a href="/" class="nav-link">Home</a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Kmzs</a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Schedule</a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Organigram</a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Tools</a>
-  </li>
+ <!-- Navbar Start -->
+ <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+  <a href="/" class="navbar-brand d-flex d-lg-none me-4">
+    <img src="img/bg-red.png" alt="Logo" class="img-fluid rounded float-left" style="opacity: .8" id="logo-sidebar-min">
+  </a>
+ 
+  <a href="#" class="sidebar-toggler flex-shrink-0">
+      <i class="fa fa-bars"></i>
+  </a>
+  <!-- <form class="d-none d-md-flex ms-4">
+      <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+  </form> -->
+  <div class="navbar-nav align-items-center ms-auto">
+
+    <% areas.forEach(element => {  %>
+                
+            <%if( title == element.area){%>
+                <% var colors = element.coloricon %>
+                <% var icons = element.icon %>
+                <h2 class="<%= colors %>"> <i class="<%= colors %> <%= icons %>"></i> <%- title %> AREA</h2>
+            <%};  %>
+    <%   });   %>
+                
+                
+                
+
+                    
+           
+  </div>
+</nav>
+<!-- Navbar End -->
