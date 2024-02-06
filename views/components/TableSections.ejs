@@ -1,0 +1,49 @@
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-secondary text-center rounded p-4 card">
+      <div class="d-flex align-items-center justify-content-between mb-4 card-header">
+          <h6 class="mb-0">Sections</h6>
+        
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+      
+          </div>
+      </div>
+      <div class="table-responsive card-body">
+          <table class="table text-start align-middle table-bordered table-hover mb-0">
+              <thead>
+                  <tr class="text-white">
+                    
+                      <th scope="col"><span id="td-sec"></span></th>
+                      <th scope="col">PK INITIAL</th>
+                      <th scope="col">PK END</th>
+                      <th scope="col">LONG</th>
+                      <th scope="col">MUNICIPALITIES</th>
+                   
+                  </tr>
+              </thead>
+              <tbody>
+
+              
+                <% sections.forEach(element => {  %>
+                    <%   let prsArray = (prs) => { prsText = { "1": "0+00" + prs, "2": "0+0" + prs, "3": "0+" + prs, "4": prs.substring(0, 1) + "+" + prs.substring(1, 5), "5": prs.substring(0, 2) + "+" + prs.substring(2, 5) } ; 
+                    let prsTd = prsText[prs.length]
+                    return  prsTd; }  %>
+                  <tr>
+                      <!-- <td><input class="form-check-input" type="checkbox"></td> -->
+                      <td><%= element.section %></td>
+                      <td><%= prsArray(String(element.pk_ini)) %></td>
+                      <td><%= prsArray(String(element.pk_end)) %></td>
+                    
+                      <td align="right"><%= element.long %> Meters</td>
+                      <td><%= element.municipalities %></td>
+                      
+                      <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                  </tr>
+                  <%               });   %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ const app = express()
 const port = 4000
 
 const areas = require('./public/json/areas.json')
+const sections = require('./public/json/sections.json')
 
 console.log(areas);
 
@@ -26,7 +27,7 @@ app.set('view engine', 'ejs')
 // Routes
 
 app.get('', (req, res) => {
-    res.render('index', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light'})
+    res.render('index', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light', sections: sections})
 })
 
 
