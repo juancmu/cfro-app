@@ -25,10 +25,25 @@
         return false;
     });
 
-
+    var fff = $('.sidebar')
+    console.log(fff)
     // Sidebar Toggler
+ 
     $('.sidebar-toggler').click(function () {
+       
         $('.sidebar, .content').toggleClass("open");
+
+        $('#logo-sidebar-max').removeClass('d-lg-none');
+
+        console.log($('#logo-sidebar-max').hasClass('d-lg-none'))
+        
+       
+            
+        
+        
+        
+
+      
         return false;
     });
 
