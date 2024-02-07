@@ -5,7 +5,7 @@
    "area_sp": "Diseños",
    "color": "blue-dark",
    "icon": "fa-solid fa-compass-drafting",
-   "coloricon": "text-danger"
+   "coloricon": "danger"
   },
   {
    "id": 2,
@@ -13,7 +13,7 @@
    "area_sp": "Ambiental",
    "color": "red-deep",
    "icon": "fa-solid fa-seedling",
-   "coloricon": "text-success"
+   "coloricon": "success"
   },
   {
    "id": 3,
@@ -21,7 +21,7 @@
    "area_sp": "Social",
    "color": "yellow-live",
    "icon": "fa-solid fa-people-arrows",
-   "coloricon": "text-pink"
+   "coloricon": "pink"
   },
   {
    "id": 4,
@@ -29,7 +29,7 @@
    "area_sp": "Redes",
    "color": "green-lime",
    "icon": "fa-solid fa-blender-phone",
-   "coloricon": "text-blue-dark"
+   "coloricon": "blue-dark"
   },
   {
    "id": 5,
@@ -37,7 +37,7 @@
    "area_sp": "Tramites y Permisos",
    "color": "blue-light",
    "icon": "fa-solid fa-newspaper",
-   "coloricon": "text-warning"
+   "coloricon": "warning"
   },
   {
    "id": 6,
@@ -45,7 +45,7 @@
    "area_sp": "Predial",
    "color": "orange-live",
    "icon": "fa-solid fa-panorama",
-   "coloricon": "text-info"
+   "coloricon": "info"
   },
   {
    "id": 7,
@@ -53,7 +53,7 @@
    "area_sp": "PK5",
    "color": "gray-dark",
    "icon": "fa-solid fa-mountain-city",
-   "coloricon": "text-green-lime"
+   "coloricon": "green-lime"
   },
   {
    "id": 8,
@@ -61,7 +61,7 @@
    "area_sp": "Corzo",
    "color": "teal",
    "icon": "fa-solid fa-industry",
-   "coloricon": "text-teal"
+   "coloricon": "teal"
   },
   {
    "id": 9,
@@ -69,7 +69,7 @@
    "area_sp": "Vias",
    "color": "blue-dark",
    "icon": "fa-solid fa-train-tram",
-   "coloricon": "text-orange-live"
+   "coloricon": "orange-live"
   },
   {
    "id": 10,
@@ -77,7 +77,7 @@
    "area_sp": "Puentes",
    "color": "red-deep",
    "icon": "fa-solid fa-bridge",
-   "coloricon": "text-purple"
+   "coloricon": "purple"
   },
   {
    "id": 11,
@@ -85,7 +85,7 @@
    "area_sp": "Juridica",
    "color": "yellow-live",
    "icon": "fa-solid fa-scale-balanced",
-   "coloricon": "text-cyan"
+   "coloricon": "cyan"
   },
   {
    "id": 12,
@@ -93,7 +93,7 @@
    "area_sp": "Presupuestos",
    "color": "green-lime",
    "icon": "fa-solid fa-filter-circle-dollar",
-   "coloricon": "text-blue-king"
+   "coloricon": "blue-king"
   },
   {
    "id": 13,
@@ -101,7 +101,7 @@
    "area_sp": "Calidad",
    "color": "blue-light",
    "icon": "fa-solid fa-check-double",
-   "coloricon": "text-red-deep"
+   "coloricon": "red-deep"
   },
   {
    "id": 14,
@@ -109,7 +109,7 @@
    "area_sp": "Programacion",
    "color": "orange-live",
    "icon": "fa-solid fa-diagram-project",
-   "coloricon": "text-light"
+   "coloricon": "light"
   },
   {
    "id": 15,
@@ -117,6 +117,6 @@
    "area_sp": "Operaciones y Mantenimiento",
    "color": "gray-dark",
    "icon": "fa-solid fa-trowel-bricks",
-   "coloricon": "text-wine"
+   "coloricon": "wine"
   }
  ]

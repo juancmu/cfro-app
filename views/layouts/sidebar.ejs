@@ -1,8 +1,17 @@
   <!-- Sidebar Start -->
+
+    <% areas.forEach(element => {  %>
+
+   
+  <%if( title == element.area){%>
+    <% var activePs = "active" %>
+    <%};  %>
+      
+      <%           });   %>
   <div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-secondary navbar-dark">
-      <a href="/" class="brand-link">
-        <img src="img/bg-red.png" alt="Logo" class="img-fluid rounded float-left" style="opacity: .8" id="logo-sidebar-min">
+    <nav class="navbar bg-secondary navbar-dark nav-round">
+      <a href="/" class="brand-link centrar">
+        <img src="img/bg-red.png" alt="Logo" class="img-fluid nav-round centrar" style="opacity: .8" id="logo-sidebar-min">
         
       </a>
       
@@ -22,10 +31,13 @@
                   <% var activeP = "active" %>
                   <%};  %>
 
-                <a href="/<%= element.area %>"  class="nav-item nav-link <%= activeP %>">
+                <a href="/<%= element.area %>"  class="nav-item nav-link hover-<%= element.coloricon %> <%= activeP %>">
 
-                  <i class="nav-icon <%= element.coloricon %> <%= element.icon %> "></i>
-                                      <%= element.area %>
+                  <i class="nav-icon text-<%= element.coloricon %> <%= element.icon %> "></i>
+                                      <span class="text-light">
+                                        <%= element.area %>
+
+                                      </span>
                     <span class="right badge badge-danger"></span>
                     
                    

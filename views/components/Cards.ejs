@@ -5,10 +5,10 @@
       <% areas.forEach(element => {  %>
         <div class="col-sm-6 col-xl-3">
           <a href="/<%= element.area %>"  class="nav-item nav-link">
-            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                <i class="<%= element.icon %> fa-3x <%= element.coloricon %>"></i>
+            <div class="bg-gray-pearl rounded d-flex align-items-center justify-content-between p-4">
+                <i class="<%= element.icon %> fa-3x text-<%= element.coloricon %>"></i>
                 <div class="ms-3">
-                    <h5 class="mb-2"><%= element.area %></h5>
+                    <h5 class="mb-2 text-dark"><%= element.area %></h5>
                     <h6 class="mb-0">1234</h6>
                 </div>
             </div>

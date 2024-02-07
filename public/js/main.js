@@ -29,13 +29,21 @@
     console.log(fff)
     // Sidebar Toggler
  
+//     $('.sidebar-color').hover(function () {
+//         $('.sidebar-color').css("background-color","yellow")
+
+// })
+
+
     $('.sidebar-toggler').click(function () {
        
         $('.sidebar, .content').toggleClass("open");
 
-        $('#logo-sidebar-max').removeClass('d-lg-none');
-
-        console.log($('#logo-sidebar-max').hasClass('d-lg-none'))
+        
+        // if ($('#logo-sidebar-max').hasClass('d-lg-none')) {
+        //     $('#logo-sidebar-max').removeClass('d-lg-none');
+            
+        // }
         
        
             

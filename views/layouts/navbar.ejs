@@ -1,25 +1,76 @@
  <!-- Navbar Start -->
- <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-  <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
-    <img src="img/bg-red.png" alt="Logo" class="img-fluid rounded float-left" style="opacity: .8" id="logo-sidebar-min">
-  </a>
- 
+
+ <% areas.forEach(element => {  %>
+    
+  <%if( title == element.area){%>
+    <% var colors = element.coloricon %>
+    <% var icons = element.icon %>
+    <nav class="navbar navbar-expand nav-round bg-secondary bd-<%= colors %> navbar-dark  px-4 py-0">
+              
+          <%};  %>
+  <%   });   %>
+              
+  
+
+   <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
+     <img src="img/bg-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
+    </a>
+  
+    
   <a href="#" class="sidebar-toggler flex-shrink-0">
       <i class="fa fa-bars"></i>
 
   </a>
+  <form class="d-none d-md-flex ms-4">
+    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+</form>
+
+<div class="navbar-nav align-items-center ms-auto">
+  <div class="nav-item">
+    
+    <a href="/GIS" class="nav-link">
+      <i class="fa-solid fa-globe"></i> 
+      <span class="d-none d-lg-inline-flex">GIS</span>  
+    </a>
+    </div>
+  
+
+  <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa-regular fa-map"></i>
+          <span class="d-none d-lg-inline-flex">Maps</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+          <a href="#" class="dropdown-item">Map 1</a>
+          <a href="#" class="dropdown-item">Map 2</a>
+          <a href="#" class="dropdown-item">Map 3</a>
+      </div>
+  </div>
+  <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span class="d-none d-lg-inline-flex">Tools</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+        <a href="#" class="dropdown-item">Tool 1 </a>
+        <a href="#" class="dropdown-item">Tool 2 </a>
+        <a href="#" class="dropdown-item">Tool 3 </a>
+    </div>
+</div>
+</div>
 
   <!-- <form class="d-none d-md-flex ms-4">
       <input class="form-control bg-dark border-0" type="search" placeholder="Search">
   </form> -->
+  
   <div class="navbar-nav align-items-center ms-auto">
-
-    <% areas.forEach(element => {  %>
-                
-            <%if( title == element.area){%>
-                <% var colors = element.coloricon %>
-                <% var icons = element.icon %>
-                <h2 class="<%= colors %>"> <i class="<%= colors %> <%= icons %>"></i> <%- title %> AREA</h2>
+  
+  <% areas.forEach(element => {  %>
+    
+    <%if( title == element.area){%>
+      <% var colors = element.coloricon %>
+      <% var icons = element.icon %>
+                <h2 class="text-<%= colors %>"> <i class="text-<%= colors %> <%= icons %>"></i> <%- title %> AREA</h2>
             <%};  %>
     <%   });   %>
                 
