@@ -16,13 +16,13 @@
         --purple: #6f42c1;
         --pink: #e83e8c;
         --teal: #20c997;
-        --cyan: #17a2b8;
+        --cyan: #0a606d;
         --white: #fff;
         --blue-king: #007bff;
         /* --secondary: #6c757d; */
         --success: #28a745;
         --info: #17a2b8;
-        --warning: #ffc107;
+        --magenta: #f10ec4;
         --danger: #dc3545;
         /* --light: #f8f9fa; */
         /* --dark: #343a40; */
@@ -76,6 +76,10 @@
 
     color: var(--gray-pearl);
 }
+.text-magenta{
+
+    color: var(--magenta);
+}
 
 
 
@@ -124,10 +128,15 @@
 
     background: var(--gray-pearl);
 }
+.bg-magenta{
+
+    background: var(--magenta);
+}
 /* borders */
 .bd-pink{
     border: 3px solid var(--pink);  
 }
+
 
 .bd-green-lime{
 
@@ -169,13 +178,37 @@
 
     border: 3px solid  var(--gray-pearl);
 }
-.bd-warning{
+.bd-magenta{
 
-    border: 3px solid  var(--warning);
+    border: 3px solid  var(--magenta);
 }
 .bd-teal{
 
     border: 3px solid  var(--teal);
+}
+.bd-danger{
+
+    border: 3px solid  var(--danger);
+}
+.bd-success{
+
+    border: 3px solid  var(--success);
+}
+.bd-info{
+
+    border: 3px solid  var(--info);
+}
+.bd-info{
+
+    border: 3px solid  var(--info);
+}
+.bd-gray-dark{
+
+    border: 3px solid  var(--gray-dark);
+}
+.bd-light{
+
+    border: 3px solid  var(--light);
 }
 
 
@@ -199,8 +232,8 @@
 .hover-info:hover, .hover-info.active{
     background: var(--info);
 }
-.hover-warning:hover, .hover-warning.active{
-    background: var(--warning);
+.hover-magenta:hover, .hover-magenta.active{
+    background: var(--magenta);
 }
 
 .hover-green-lime:hover, .hover-green-lime.active{
@@ -242,6 +275,10 @@
 .hover-gray-pearl:hover, .hover-gray-pearl.active{
 
     background: var(--gray-pearl);
+}
+.hover-gray-dark:hover, .hover-gray-dark.active{
+
+    background: var(--gray-dark);
 }
 
 
@@ -388,7 +425,7 @@
 /*** Navbar ***/
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
-    color: var(--light); /***Color Icon Text Navbar ***/
+    color: var(--light); /**Color Icon Text Navbar **/
     font-weight: 500;
     /* border-left: 3px solid var(--secondary); */
     border-radius: 30px 0 0 30px;
@@ -459,7 +496,11 @@
 #container-body{
 
     background-image: url(../img/bg-blue-op.png);
-
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-attachment: fixed
+    
 
 }
 
@@ -482,7 +523,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--dark); /***Color Icons Sidebar ***/
+  
     border-radius: 40px;
 }
 

@@ -5,11 +5,13 @@
       <% areas.forEach(element => {  %>
         <div class="col-sm-6 col-xl-3">
           <a href="/<%= element.area %>"  class="nav-item nav-link">
-            <div class="bg-gray-pearl rounded d-flex align-items-center justify-content-between p-4">
+            <div class="bg-gray-pearl rounded d-flex align-items-center bd-<%= element.coloricon %> justify-content-between p-4">
                 <i class="<%= element.icon %> fa-3x text-<%= element.coloricon %>"></i>
-                <div class="ms-3">
-                    <h5 class="mb-2 text-dark"><%= element.area %></h5>
-                    <h6 class="mb-0">1234</h6>
+                <div class="ms-1">
+                    <h5 class="mb-0 text-dark"><%= element.area %></h5>
+                    <h6 class="mb-0 text-dark"><%= element.item %></h6>
+                    <h6 class="text-<%= element.coloricon %>"> <%= element.data_dash_1 %> <%= element.value_1 %> <%= element.units %></h6>
+                    <h6 class="text-danger"> <%= element.data_dash_2 %> <%= element.value_2 %> <%= element.units %></h6>
                 </div>
             </div>
           </a>

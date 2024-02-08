@@ -26,7 +26,7 @@
     });
 
     var fff = $('.sidebar')
-    console.log(fff)
+  
     // Sidebar Toggler
  
 //     $('.sidebar-color').hover(function () {

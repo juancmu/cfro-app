@@ -5,7 +5,12 @@
    "area_sp": "Diseños",
    "color": "blue-dark",
    "icon": "fa-solid fa-compass-drafting",
-   "coloricon": "danger"
+   "coloricon": "danger",
+   "item": "Desings",
+   "data_dash_1": "Delivered",
+   "value_1": 10,
+   "data_dash_2": "Approved",
+   "value_2": 8
   },
   {
    "id": 2,
@@ -13,7 +18,12 @@
    "area_sp": "Ambiental",
    "color": "red-deep",
    "icon": "fa-solid fa-seedling",
-   "coloricon": "success"
+   "coloricon": "success",
+   "item": "Tramits",
+   "data_dash_1": "Delivered",
+   "value_1": 3,
+   "data_dash_2": "Approved",
+   "value_2": 2
   },
   {
    "id": 3,
@@ -21,7 +31,12 @@
    "area_sp": "Social",
    "color": "yellow-live",
    "icon": "fa-solid fa-people-arrows",
-   "coloricon": "pink"
+   "coloricon": "pink",
+   "item": "Socializations",
+   "data_dash_1": "Executed",
+   "value_1": 10,
+   "data_dash_2": "Pending",
+   "value_2": 5
   },
   {
    "id": 4,
@@ -29,7 +44,12 @@
    "area_sp": "Redes",
    "color": "green-lime",
    "icon": "fa-solid fa-blender-phone",
-   "coloricon": "blue-dark"
+   "coloricon": "blue-dark",
+   "item": "Interferences",
+   "data_dash_1": "Delivered",
+   "value_1": 150,
+   "data_dash_2": "Approved",
+   "value_2": 100
   },
   {
    "id": 5,
@@ -37,7 +57,12 @@
    "area_sp": "Tramites y Permisos",
    "color": "blue-light",
    "icon": "fa-solid fa-newspaper",
-   "coloricon": "warning"
+   "coloricon": "magenta",
+   "item": "Licences",
+   "data_dash_1": "Delivered",
+   "value_1": 60,
+   "data_dash_2": "Approved",
+   "value_2": 50
   },
   {
    "id": 6,
@@ -45,7 +70,12 @@
    "area_sp": "Predial",
    "color": "orange-live",
    "icon": "fa-solid fa-panorama",
-   "coloricon": "info"
+   "coloricon": "info",
+   "item": "Areas",
+   "data_dash_1": "Received",
+   "value_1": 200,
+   "data_dash_2": "Pending",
+   "value_2": 30
   },
   {
    "id": 7,
@@ -53,7 +83,13 @@
    "area_sp": "PK5",
    "color": "gray-dark",
    "icon": "fa-solid fa-mountain-city",
-   "coloricon": "green-lime"
+   "coloricon": "green-lime",
+   "item": "Construccion",
+   "data_dash_1": "Built",
+   "value_1": 100,
+   "data_dash_2": "Pending",
+   "value_2": 40,
+   "units": "m2"
   },
   {
    "id": 8,
@@ -61,7 +97,13 @@
    "area_sp": "Corzo",
    "color": "teal",
    "icon": "fa-solid fa-industry",
-   "coloricon": "teal"
+   "coloricon": "teal",
+   "item": "Construccion",
+   "data_dash_1": "Built",
+   "value_1": 100,
+   "data_dash_2": "Pending",
+   "value_2": 40,
+   "units": "m2"
   },
   {
    "id": 9,
@@ -69,7 +111,13 @@
    "area_sp": "Vias",
    "color": "blue-dark",
    "icon": "fa-solid fa-train-tram",
-   "coloricon": "orange-live"
+   "coloricon": "orange-live",
+   "item": "Railways",
+   "data_dash_1": "Built",
+   "value_1": 20,
+   "data_dash_2": "Pending",
+   "value_2": 20,
+   "units": "Km"
   },
   {
    "id": 10,
@@ -77,7 +125,13 @@
    "area_sp": "Puentes",
    "color": "red-deep",
    "icon": "fa-solid fa-bridge",
-   "coloricon": "purple"
+   "coloricon": "purple",
+   "item": "Bridges",
+   "data_dash_1": "Built",
+   "value_1": 1,
+   "data_dash_2": "Pending",
+   "value_2": 4,
+   "units": "Km"
   },
   {
    "id": 11,
@@ -85,7 +139,12 @@
    "area_sp": "Juridica",
    "color": "yellow-live",
    "icon": "fa-solid fa-scale-balanced",
-   "coloricon": "cyan"
+   "coloricon": "cyan",
+   "item": "Composers",
+   "data_dash_1": "Achived",
+   "value_1": 2,
+   "data_dash_2": "Pending",
+   "value_2": 2
   },
   {
    "id": 12,
@@ -93,7 +152,13 @@
    "area_sp": "Presupuestos",
    "color": "green-lime",
    "icon": "fa-solid fa-filter-circle-dollar",
-   "coloricon": "blue-king"
+   "coloricon": "blue-king",
+   "item": "Advance",
+   "data_dash_1": "Executed",
+   "value_1": 10000000,
+   "data_dash_2": "Pending",
+   "value_2": 20000000,
+   "units": "USD"
   },
   {
    "id": 13,
@@ -101,7 +166,12 @@
    "area_sp": "Calidad",
    "color": "blue-light",
    "icon": "fa-solid fa-check-double",
-   "coloricon": "red-deep"
+   "coloricon": "red-deep",
+   "item": "Process",
+   "data_dash_1": "Executed",
+   "value_1": 20,
+   "data_dash_2": "Pending",
+   "value_2": 10
   },
   {
    "id": 14,
@@ -109,14 +179,26 @@
    "area_sp": "Programacion",
    "color": "orange-live",
    "icon": "fa-solid fa-diagram-project",
-   "coloricon": "light"
+   "coloricon": "light",
+   "item": "Advance",
+   "data_dash_1": "Executed",
+   "value_1": 10,
+   "data_dash_2": "Pending",
+   "value_2": 90,
+   "units": "%"
   },
   {
    "id": 15,
    "area": "Operations",
-   "area_sp": "Operaciones y Mantenimiento",
+   "area_sp": "Operaciones",
    "color": "gray-dark",
    "icon": "fa-solid fa-trowel-bricks",
-   "coloricon": "wine"
+   "coloricon": "wine",
+   "item": "Maintenance",
+   "data_dash_1": "Executed",
+   "value_1": 10,
+   "data_dash_2": "Pending",
+   "value_2": 30,
+   "units": "Km"
   }
  ]

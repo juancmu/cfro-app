@@ -3,28 +3,48 @@
     <% areas.forEach(element => {  %>
 
    
-  <%if( title == element.area){%>
-    <% var activePs = "active" %>
-    <%};  %>
+        <%if( title == element.area){%>
+          <% var activePs = "active" %>
+        <%};  %>
       
-      <%           });   %>
+    <%           });   %>
   <div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-secondary navbar-dark nav-round">
+
+    <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+
+      <nav class="navbar bg-secondary bd-gray-dark navbar-dark nav-round">
+      
+        <%};  %>
+
+
+
+    <% areas.forEach(element => {  %>
+      <%if( title == element.area){%>
+
+    <nav class="navbar bg-secondary bd-<%= element.coloricon %> navbar-dark nav-round">
+      <%};  %>
+    <%           });   %>
+
+
+
       <a href="/" class="brand-link centrar">
-        <img src="img/bg-red.png" alt="Logo" class="img-fluid nav-round centrar" style="opacity: .8" id="logo-sidebar-min">
-        
+        <img src="img/logo-red.png" alt="Logo" class="img-fluid nav-round centrar" style="opacity: .8" id="logo-sidebar-min">
+      
       </a>
       
         <div class="navbar-nav w-100">
           <%if( title == "CFRO DASHBOARD"){%>
             <% var activeP = "active" %>
             <%};  %>
-            <a href="/" class="nav-item nav-link <%= activeP %>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/" class="nav-item nav-link hover-gray-dark <%= activeP %>"><i class="fa fa-tachometer-alt me-2"></i> 
+              <span class="text-gray-pearl">
+                Dashboard
+
+              </span>  
+            </a>
           
           <% areas.forEach(element => {  %>
-                
-                
-                
+                                
               <li class="nav-item">
                
                 <%if( title == element.area){%>
@@ -34,7 +54,7 @@
                 <a href="/<%= element.area %>"  class="nav-item nav-link hover-<%= element.coloricon %> <%= activeP %>">
 
                   <i class="nav-icon text-<%= element.coloricon %> <%= element.icon %> "></i>
-                                      <span class="text-light">
+                                      <span class="text-gray-pearl">
                                         <%= element.area %>
 
                                       </span>

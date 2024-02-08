@@ -8,8 +8,6 @@ const port = 4000
 const areas = require('./public/json/areas.json')
 const sections = require('./public/json/sections.json')
 
-console.log(areas);
-
 
 // Static Files
 app.use(express.static('public'))
@@ -26,21 +24,9 @@ app.set('view engine', 'ejs')
 
 // Routes
 
-app.get('', (req, res) => {
-    res.render('index', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light', sections: sections})
-})
+app.use(require('./router'))
 
 
-// app.get('/environmental', (req, res) => {
-//     res.render('environmental', { title: 'Environmental', areas: areas})
-// })
-
-areas.forEach(element => {
-    
-    app.get(`/${element.area}`, (req, res) => {
-        res.render(element.area, { title: element.area, areas: areas, color: element.coloricon})
-    })
-});
 
 
 // Listen on Port 5000

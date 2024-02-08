@@ -1,7 +1,12 @@
+<%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+
+  <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark  px-4 py-0">
+  
+    <%};  %>
  <!-- Navbar Start -->
 
  <% areas.forEach(element => {  %>
-    
+
   <%if( title == element.area){%>
     <% var colors = element.coloricon %>
     <% var icons = element.icon %>
@@ -13,19 +18,20 @@
   
 
    <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
-     <img src="img/bg-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
+     <img src="img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
     </a>
   
-    
-  <a href="#" class="sidebar-toggler flex-shrink-0">
+    <!-- // dropdown sidebar -->
+  <a href="#" class="sidebar-toggler flex-shrink-0 mx-5 mx-md-2">
       <i class="fa fa-bars"></i>
 
   </a>
-  <form class="d-none d-md-flex ms-4">
+  <!-- <form class="d-none d-md-flex ms-4">
     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-</form>
+</form> -->
 
 <div class="navbar-nav align-items-center ms-auto">
+  
   <div class="nav-item">
     
     <a href="/GIS" class="nav-link">
@@ -64,6 +70,11 @@
   </form> -->
   
   <div class="navbar-nav align-items-center ms-auto">
+    <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+      
+      <h2 class="d-none d-md-block">  <%= title  %></h2>
+
+    <%};  %>
   
   <% areas.forEach(element => {  %>
     
@@ -71,7 +82,8 @@
       <% var colors = element.coloricon %>
       <% var icons = element.icon %>
                 <h2 class="text-<%= colors %>"> <i class="text-<%= colors %> <%= icons %>"></i> <%- title %> AREA</h2>
-            <%};  %>
+    <%};  %>
+
     <%   });   %>
                 
                 
