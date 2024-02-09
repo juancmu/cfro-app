@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main-container">
+                    <form action="/new" method="post">
+                            <p>
+                                <label for="">Movie Name</label>
+                                <input type="text" name="name" id="name">
+                            </p>
+                            <p>
+                                <label for="">Value</label><br/>
+                                <input type="range" min="0" name="rating" id="rating">  
+                            </p>
+                            <input type="button" value="New movie" id="bSubmit">    
+
+                    </form>
+
+                    <div class="h-25"  id="peliculas-container"></div>
+
+    </div>  
+
+
+    <script>
+
+        const bSubmit = document.querySelector('#bSubmit')
+
+        loadPeliculas()
+
+        bSubmit.addEventListener('click', () => {
+            
+            // validate inputs 
+
+            const rating = document.querySelector('#rating').value
+            const nombre = document.querySelector('#name').value
+
+            // if (nombre.trim() === '' || rating.trim() === '') return false
+
+            // send Request post 
+            fetch('/new', {
+                method: 'POST', 
+                headers:{'Content-type': 'aplication/json'},
+                body: JSON.stringify({"nombre": nombre, "rating": rating})
+            })
+
+            .then(res => res.text())
+            .then(data => {
+
+                alert("ok")
+                loadPeliculas()
+            }
+            )
+
+
+            // show error Message
+
+            // update list
+            
+        })
+
+            function loadPeliculas() {
+                fetch('/getmovies', {method: 'GET'})
+                .then(res => res.json())
+                .then(data => {
+                    let peliculas = document.querySelector('#peliculas-container')
+                    let html = ''
+                    
+                    data.peliculas.forEach(pelicula => {
+                        html += `<div>${pelicula.nombre} -  ${pelicula.rating} </div>`
+                    });
+                
+                peliculas.innerHTML = html    
+                })
+
+
+            }
+
+
+
+    </script>  
+
+
+</body>
+</html>

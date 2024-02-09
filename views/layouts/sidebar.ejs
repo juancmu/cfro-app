@@ -1,29 +1,34 @@
   <!-- Sidebar Start -->
 
+  <% var colors = []  %>
+  <% var titles = []  %>
+  <% var icons = []  %>
+  <% var i = 0  %>
+
     <% areas.forEach(element => {  %>
 
-   
+        <% colors[element.area] = element.coloricon %>
+        <% titles[element.area] = element.area %>
+        <% icons[element.area] = element.icon %>
+  
+     
         <%if( title == element.area){%>
           <% var activePs = "active" %>
         <%};  %>
       
     <%           });   %>
+
   <div class="sidebar pe-4 pb-3">
 
     <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
 
       <nav class="navbar bg-secondary bd-gray-dark navbar-dark nav-round">
       
-        <%};  %>
+        <%}else{;  %>
 
-
-
-    <% areas.forEach(element => {  %>
-      <%if( title == element.area){%>
-
-    <nav class="navbar bg-secondary bd-<%= element.coloricon %> navbar-dark nav-round">
+    <nav class="navbar bg-secondary bd-<%= colors[title]%> nav>navbar-dark nav-round">
       <%};  %>
-    <%           });   %>
+
 
 
 
@@ -49,11 +54,11 @@
                
                 <%if( title == element.area){%>
                   <% var activeP = "active" %>
-                  <%};  %>
+                <%};  %>
 
                 <a href="/<%= element.area %>"  class="nav-item nav-link hover-<%= element.coloricon %> <%= activeP %>">
 
-                  <i class="nav-icon text-<%= element.coloricon %> <%= element.icon %> "></i>
+                  <i class="nav-icon text-<%= element.coloricon %> <%= element.icon %> fa-xl"></i>
                                       <span class="text-gray-pearl">
                                         <%= element.area %>
 
@@ -64,7 +69,7 @@
                 </a>
               </li>
              
-              <%           });   %>
+          <%  });   %>
 
           
         </div>

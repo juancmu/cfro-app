@@ -12,7 +12,8 @@ const qr = require('qrcode')
 
 
 const areas = require('./public/json/areas.json')
-const sections = require('./public/json/sections.json')
+const sections = require('./public/json/sections.json');
+const { register } = require('module');
 
 
 
@@ -27,6 +28,41 @@ router.get('', (req, res) => {
 router.get('/GIS', (req, res) => {
     res.render('GIS', { title: 'GEOGRAPHIC INFORMATION SYSTEM', areas: areas, color: 'text-light', sections: sections})
 })
+
+router.get('/ajax', (req, res) => {
+    res.render('ajax', { title: 'GEOGRAPHIC INFORMATION SYSTEM', areas: areas, color: 'text-light', sections: sections})
+})
+router.get('/getmovies', (req, res) => {
+    
+    const file = fs.readFileSync('./public/json/peliculas.json', 'UTF-8')
+    res.setHeader('Content-type','text/json')
+    res.send(file)
+})
+
+router.post('/new', (req, res) => {
+    res.setHeader('Content-type','text/html')
+    const name = req.body.name
+    const rating = req.body.rating
+    
+    // open file
+    let file = fs.readFileSync('./public/json/peliculas.json', 'UTF-8')
+
+    // convert file
+
+    let json = JSON.parse(file)
+
+    // insert new register
+
+    json.peliculas.push({"nombre": name, "rating": parseInt(rating)})
+    
+    // save reg
+
+    file = fs.writeFileSync('./public/json/peliculas.json', JSON.stringify(json))
+
+    res.send("data save")
+
+})
+
 
 
 // app.get('/environmental', (req, res) => {

@@ -1,22 +1,45 @@
-<%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+<script>
 
-  <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark  px-4 py-0">
+  var parcelsEFR = <%- JSON.stringify(areas); %>
+
+  // console.log(parcelsEFR);
   
-    <%};  %>
- <!-- Navbar Start -->
+  
+  
+  
+  </script>
 
- <% areas.forEach(element => {  %>
+<!-- Navbar Start -->
 
-  <%if( title == element.area){%>
-    <% var colors = element.coloricon %>
-    <% var icons = element.icon %>
-    <nav class="navbar navbar-expand nav-round bg-secondary bd-<%= colors %> navbar-dark  px-4 py-0">
-              
-          <%};  %>
+
+
+
+
+<% var colors = []  %>
+<% var titles = []  %>
+<% var icons = []  %>
+
+
+<% areas.forEach(element => {  %>
+  
+  <% colors[element.area] = element.coloricon %>
+  <% titles[element.area] = element.area %>
+  <% icons[element.area] = element.icon %>
   <%   });   %>
-              
   
+  <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+  
+    <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark  px-4 py-0">
+    
+      <%}else{ %>
 
+        <nav class="navbar navbar-expand nav-round bg-secondary bd-<%= colors[title] %> navbar-dark  px-4 py-0">
+
+
+      <%};  %>
+  
+    
+  
    <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
      <img src="img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
     </a>
@@ -70,27 +93,18 @@
   </form> -->
   
   <div class="navbar-nav align-items-center ms-auto">
-    <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+    <%if( title == "CFRO DASHBOARD"){%>
       
-      <h2 class="d-none d-md-block">  <%= title  %></h2>
+    <h2 class="d-none d-md-block">  <%= title  %></h2>
 
-    <%};  %>
-  
-  <% areas.forEach(element => {  %>
-    
-    <%if( title == element.area){%>
-      <% var colors = element.coloricon %>
-      <% var icons = element.icon %>
-                <h2 class="text-<%= colors %>"> <i class="text-<%= colors %> <%= icons %>"></i> <%- title %> AREA</h2>
-    <%};  %>
 
-    <%   });   %>
-                
-                
-                
+    <%}else{ %>
+      
+      <h2 class="text-<%= colors[title] %> d-none d-md-block"> <i class="text-<%= colors[title] %> <%= icons[title] %>"></i> <%- title %> AREA</h2>
 
-                    
-           
-  </div>
-</nav>
+    <%};   %>
+   </div>
+
+  </nav>
+  <h2 class="d-md-none text-<%= colors[title] %>">  <%= title  %></h2>
 <!-- Navbar End -->
