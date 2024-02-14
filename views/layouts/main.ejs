@@ -32,11 +32,14 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/card-area.css" rel="stylesheet">
 
     <!-- Leaflet Assets -->
   
-
-
+      <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
 
     <!-- Include jQuery JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -64,19 +67,10 @@
             <main><%- body %></main>
 
 
-          
-          <% areas.forEach(element => {  %>
-            <%if( title == element.area){%>
-      
-         
-            <a href="#" class="btn btn-lg bg-<%= element.coloricon %> text-dark btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-         
-            <%};  %>
 
-            <%if( title == "CFRO DASHBOARD"){%>
-              <a href="#" class="btn-lg bg-danger text-dark back-to-top"><i class="bi bi-arrow-up"></i></a>
-            <%           };   %>
-          <% });   %>
+
+            <%- include('../layouts/footer.ejs') %>
+       
 
           
 

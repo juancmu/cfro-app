@@ -1,0 +1,12 @@
+<% areas.forEach(element => {  %>
+    <%if( title == element.area){%>
+  
+    <a href="#" class="btn btn-lg bg-<%= element.coloricon %> text-dark btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <%}  %>
+
+    <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+
+      <a href="#" class="btn-lg bg-danger text-dark back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <%           };   %>
+  <% });   %>
