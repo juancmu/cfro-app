@@ -1,0 +1,21 @@
+.size-bar{
+    height: 40px;
+
+}
+
+.progress-value {
+    background-color: aliceblue;
+  }
+  .value {
+      display: none;
+      position: absolute;
+        font-size: large;
+      transform: translate(250%, 0%);
+      /* background-color: rgba(0, 0, 0, 0.5); */
+      color: #860beb;
+      padding: 5px;
+      border-radius: 5px;
+  }
+  .progress-value:hover .value {
+      display: block;
+  }

@@ -1,25 +1,74 @@
-
-
         <!-- Chart Start -->
+        <link href="css/card-area.css" rel="stylesheet">
+     
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded  p-4">
+                        <h6 class="mb-4">Images</h6>
+                        <div class="slider">
+                            <div class="slides">
+                                    <img class="slide" src="img/Operations.png" alt="img1">
+                                    <img class="slide" src="img/Lands.png" alt="img2">
+                                    <img class="slide" src="img/PK5.png" alt="img3">
+                            </div>
+                            <button class="prev" onclick="prevSlide()">&#10094</button>
+                            <button class="next" onclick="nextSlide()">&#10095</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-6">
                     <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Area Image</h6>
-                        <img src="img/Environmental.png" alt="Logo" class="rounded img-card-area">
-                        
+                        <h6 class="mb-4">targets</h6>
+                  
+
+                            <div class="mini-target-container">
+
+                                <div class="mini-target bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                    <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                    <div class="ms-3">
+                                        <p class="mb-2 text-black-50">Today Sale</p>
+                                        <h6 class="mb-0">$1234</h6>
+                                    </div>
+                                </div>
+                                
+                                <div class=" mini-target bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                                    <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                    <div class="ms-3">
+                                        <p class="mb-2">Today Sale</p>
+                                        <h6 class="mb-0">$1234</h6>
+                                    </div>
+                                </div>
+
+                                <div class="mini-target bg-blue-dark rounded d-flex align-items-center justify-content-between p-4">
+                                    <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                    <div class="ms-3">
+                                        <p class="mb-2">Stats 1</p>
+                                        <h6 class="mb-0">$1234</h6>
+                                    </div>
+                                </div>
+                                
+                                <div class=" mini-target bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                                    <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                    <div class="ms-3">
+                                        <p class="mb-2">Stats 2</p>
+                                        <h6 class="mb-0">1234</h6>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                           
+                            
+                      
+
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Multiple Line Chart</h6>
+                        <h6 class="mb-4">Multiple Charts</h6>
                         <canvas id="salse-revenue"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Single Bar Chart</h6>
-                        <canvas id="bar-chart"></canvas>
+                        
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
@@ -28,21 +77,20 @@
                         <canvas id="worldwide-sales"></canvas>
                     </div>
                 </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Pie Chart</h6>
-                        <canvas id="pie-chart"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Doughnut Chart</h6>
-                        <canvas id="doughnut-chart"></canvas>
-                    </div>
-                </div>
+      
             </div>
         </div>
         <!-- Chart End -->
 
+
+        <!-- Footer Start -->
+
+        <!-- Footer End -->
+    </div>
+
+    <script src="js/card-area.js"></script>
+
+
+    <!-- Content End -->
 
 

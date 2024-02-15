@@ -23,6 +23,9 @@ require('dotenv').config(); // for to read the .env file
 router.get('', (req, res) => {
     res.render('index', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light', sections: sections})
 })
+router.get('/react', (req, res) => {
+    res.render('react', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light', sections: sections})
+})
 
 
 router.get('/GIS', (req, res) => {
