@@ -1,10 +1,24 @@
         <!-- Chart Start -->
         <link href="css/card-area.css" rel="stylesheet">
      
+        <% var colors = []  %>
+        <% var titles = []  %>
+        <% var icons = []  %>
+        
+        
+        <% areas.forEach(element => {  %>
+          
+          <% colors[element.area] = element.coloricon %>
+          <% titles[element.area] = element.area %>
+          <% icons[element.area] = element.icon %>
+          <%   });   %>
+
+
+
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded  p-4">
+                    <div class="bg-secondary rounded  p-4 bd-<%= colors[title] %>">
                         <h6 class="mb-4">Images</h6>
                         <div class="slider">
                             <div class="slides">
@@ -19,7 +33,7 @@
                 </div>
 
                 <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
+                    <div class="bg-secondary rounded h-100 p-4 bd-<%= colors[title] %>">
                         <h6 class="mb-4">targets</h6>
                   
 
@@ -65,14 +79,14 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
+                    <div class="bg-secondary rounded h-100 p-4 bd-<%= colors[title] %>">
                         <h6 class="mb-4">Multiple Charts</h6>
                         <canvas id="salse-revenue"></canvas>
                         
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
+                    <div class="bg-secondary rounded h-100 p-4 bd-<%= colors[title] %>">
                         <h6 class="mb-4">Multiple Bar Chart</h6>
                         <canvas id="worldwide-sales"></canvas>
                     </div>
