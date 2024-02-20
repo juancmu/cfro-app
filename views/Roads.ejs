@@ -1,1 +1,79 @@
-<%- include('./components/card-area.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatter Chart with Custom Tooltip</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="lib/tempusdominus/js/moment.min.js"></script>
+  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+
+</head>
+<body>
+  <canvas id="myChart" width="400" height="400"></canvas>
+
+  <script>
+    // Sample data
+    const data = {
+      datasets: [{
+        label: 'Scatter Dataset',
+        data: [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 4, y: 4}, {x: 5, y: 5}],
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      }]
+    };
+
+    // Chart options
+    const options = {
+      tooltips: {
+        mode: 'custom',
+        intersect: false,
+        custom: function(tooltipModel) {
+          // Tooltip Element
+          let tooltipEl = document.getElementById('chartjs-tooltip');
+
+          // Create tooltip if it doesn't exist
+          if (!tooltipEl) {
+            tooltipEl = document.createElement('div');
+            tooltipEl.id = 'chartjs-tooltip';
+            tooltipEl.classList.add('chartjs-tooltip');
+            this._chart.canvas.parentNode.appendChild(tooltipEl);
+          }
+
+          // Hide if no tooltip
+          if (tooltipModel.opacity === 0) {
+            tooltipEl.style.opacity = 0;
+            return;
+          }
+
+          // Set caret position
+          tooltipEl.classList.remove('above', 'below', 'no-transform');
+          if (tooltipModel.yAlign) {
+            tooltipEl.classList.add(tooltipModel.yAlign);
+          } else {
+            tooltipEl.classList.add('no-transform');
+          }
+
+          // Set tooltip content and position
+          if (tooltipModel.body) {
+            const dataPoint = data.datasets[tooltipModel.dataPoints[0].datasetIndex].data[tooltipModel.dataPoints[0].index];
+            tooltipEl.innerHTML = `(${dataPoint.x}, ${dataPoint.y})`;
+            tooltipEl.style.left = tooltipModel.caretX + 'px';
+            tooltipEl.style.top = tooltipModel.caretY + 'px';
+            tooltipEl.style.opacity = 1;
+          }
+        }
+      }
+    };
+
+    // Generate the chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'scatter',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+</html>
