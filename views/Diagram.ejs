@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <!-- <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+     -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 500px;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 90%;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script>
+          // ejs vars to js
+        var dataDia = <%- JSON.stringify(scatterData); %>
+        var sections = <%- JSON.stringify(sections); %>
+        console.log(sections);
+    </script>
+
+      <!-- // draw Chart -->
+      <div class="chartBox container-fluid">
+        <canvas id="myChart" class="w-100"></canvas>
+        <button onclick="exportToPDF()" class="w-25"><i class="fa-solid fa-file-pdf fa-xxl bg-red"></i></button>
+        <button onclick="exportToPNG()" class="w-25"><i class="fa-solid fa-download fa-xxl bg-red"></i></button>
+      </div>
+ 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="lib/chartjs-datalabels.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script>
+    // setup 
+
+    // console.log(dataDia);
+
+    const dataChart = []
+    const dataName = []
+    var datasets = [] 
+    const structures = []
+
+    var borderColor = { 's':'rgba(54, 162, 235, 1)',
+                        'b':'rgba(8, 183, 39, 1)',
+                        'm':'rgba(80, 79, 80, 1)',
+                        'w':'rgba(98, 5, 162, 1)',
+                        'f':'rgba(242, 247, 9, 1)',
+                        'c':'rgba(255, 0, 9, 1)',
+                        'r':'rgba(232, 141, 1, 1)',
+        }
+    var label = { 's':'Stations',
+                        'b':'Bridges',
+                        'm':'Movements',
+                        'w':'WorkShops',
+                        'f':'Systems',
+                        'c':'Catenary',
+                        'r':'Rails',
+  }
+
+  var offset = { 's':-15,
+                        'b': -5,
+                        'm':'Movements',
+                        'w':-5,
+                        'f':'Systems',
+                        'c':'Catenary',
+                        'r':'Rails',
+  }
+
+  var sectionColor = { '1':'rgba(54, 162, 235, 0.1)',
+                        '2':'rgba(8, 183, 39, 0.1)',
+                        '3':'rgba(80, 79, 80, 0.1)',
+                        '4':'rgba(98, 5, 162, 0.1)',
+                        '5':'rgba(242, 247, 119, 0.1)',
+                        '6':'rgba(255, 0, 19, 0.1)',
+                        '7':'rgba(232, 141, 1, 0.1)',
+                        '8':'rgba(54, 162, 235, 0.1)',
+                        '9':'rgba(8, 183, 39, 0.1)',
+                        '10':'rgba(80, 79, 80, 0.1)',
+                        '11':'rgba(98, 5, 162, 0.1)',
+                        '12':'rgba(242, 247, 119, 0.1)',
+                        '13':'rgba(255, 0, 19, 0.1)',
+                        '14':'rgba(232, 141, 1, 0.1)',
+                        '15':'rgba(54, 162, 235, 0.1)',
+                        '16':'rgba(8, 183, 39, 0.1)',
+                        '17':'rgba(250, 0, 0, 0.1)',
+                        '18':'rgba(98, 5, 162, 0.1)',
+        }
+
+
+   const stationData= dataDia.filter(element => element['TYPE'] == "b");
+
+  dataDia.map(el => {
+    
+    const dateSplitFuntion = (dateVar) =>{ 
+      dateSplit = dateVar.split("-")
+      dateConverted = new Date(`${dateSplit[2]}-${dateSplit[0]}-${dateSplit[1]}`)
+      return dateConverted
+    }
+    structures.push({name: el['structure_spa'], x1: el['pk_ini'], x2: el['pk_end'], y1: dateSplitFuntion(el['ini']), y2: dateSplitFuntion(el['end']), type: el['TYPE'], duration: el['duration']}
+    )  
+    })  
+  
+  structures.map (e => {
+            id1 = (e.y2 > e.y1) ? 0 : 1
+            id2 = (e.y2 > e.y1) ? 1 : 0
+
+      datasets.push({
+          label: label[e.type],
+          data: [{x: e.x1, y: e.y1, name: e.name, id:id1, type: e.type, duration: e.duration },{ x:e.x2, y:e.y2, name: e.name, id:id2, type: e.type, duration: e.duration }],
+          borderColor: borderColor[e.type],
+          showLine: true,
+          borderWidth: 1.5,
+
+      })
+         })    
+    const data = {
+      datasets: datasets
+    };
+
+const successTracker = {
+    id: 'successTracker',
+    beforeDraw(chart, args, options){
+
+      //console.log(options);
+        const { ctx, chartArea: { top, right, bottom, left, width, height },  
+        scales: { x, y } }  = chart
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, width+100, height+100)
+        ctx.restore()
+
+
+        ctx.save() 
+
+        ctx.strokeStyle = "blue"
+        var whiteMarch = (new Date('2026-05-25')*1)
+        var whiteMarchEnd = (new Date('2026-11-25')*1)
+        ctx.strokeRect(left, y.getPixelForValue(whiteMarch), width, -y.getPixelForValue(whiteMarchEnd))
+       
+        // years Stroke
+        ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)'
+        var line2024 = (new Date('2024-01-01')*1)
+        var line2025 = (new Date('2025-01-01')*1)
+        var line2026 = (new Date('2026-01-01')*1)
+        ctx.strokeRect(left, y.getPixelForValue(line2024), width, 1)
+        ctx.strokeRect(left, y.getPixelForValue(line2025), width, 1)
+        ctx.strokeRect(left, y.getPixelForValue(line2026), width, 1)
+
+        
+        // Background Ctx Region
+        ctx.fillStyle = 'rgba(54, 162, 235, 0.5)'
+        ctx.fillRect(left, y.getPixelForValue(whiteMarch), width, -y.getPixelForValue(whiteMarchEnd))
+       
+
+        // Text Region
+        ctx.font = '12px Arial'
+        ctx.fillStyle = 'Blue'
+        ctx.fillText('White March', left, y.getPixelForValue(whiteMarch)-top)
+        
+          // scale chart unit vs pixels units
+        scale = (pr) =>{
+          xFill =  (right - left)*pr/40
+          return xFill
+        } 
+        
+        // create all regions
+        sections.map(e => {
+          
+          ctx.fillStyle = sectionColor[e.section]
+          ctx.fillRect(x.getPixelForValue(e.pk_ini/1000), bottom, scale(e.pk_end/1000-e.pk_ini/1000), -height)
+          ctx.font = '10px Arial'
+          ctx.fillStyle = 'Black'
+          ctx.fillText('T'+ e.section, x.getPixelForValue(e.pk_ini/1000 + (e.pk_end/1000-e.pk_ini/1000)/2), bottom-10)
+          ctx.textAlign = 'center'
+    
+        })
+        
+        ctx.restore()  
+    }
+}
+
+
+  // const bgColor = {
+  //   id: 'bgColor',
+  //   beforeDraw: (chart, options) => {
+  //     const { ctx}
+
+  //   }
+
+  // }
+
+
+
+
+    // config 
+    const config = {
+      type: 'scatter',
+      data,
+      options: {
+        onHover: (event, chartElement) => {
+
+            if( chartElement[0] ) {
+              thickLine(chartElement[0].datasetIndex, 5);
+
+            } else {
+              thickLine(-1, 1.5);
+            }
+          },
+          responsive: true,
+        plugins: {
+          
+          tooltip: {
+          
+            callbacks: {
+              label: (context) =>{
+                dateItem = context.raw.y
+               
+                dateToString = dateItem.toString()
+                dateSplit = dateToString.split(" ")
+                dateLabel = dateSplit[2] + "-" +  dateSplit[1] + "-" +  dateSplit[3]
+                label = (context.raw.id === 0) ? `${context.raw.name} - Initial Date ${dateLabel}` : `${context.raw.name} - Final Date ${dateLabel} - Duration ${context.raw.duration} days`
+                return label
+              }
+            },
+          },
+          legend: {
+            onClick: (evt, legendItem, legend) => {
+            // console.log(legend)
+            let newVal = !legendItem.hidden;
+            legend.chart.data.datasets.forEach(dataset => {
+              
+              if (dataset.label === legendItem.text) {
+                dataset.hidden = newVal
+              }
+
+            })
+            ;
+            legend.chart.update();
+            },
+            labels: {
+            filter: (legendItem, chartData) => {
+              let entries = chartData.datasets.map(e => e.label);
+              return entries.indexOf(legendItem.text) === legendItem.datasetIndex;
+            }
+            }
+          },
+          datalabels: {
+            anchor: 'end',
+            align: 'right',
+                offset: function(context) {
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[0].type;
+                    return offset[context.dataset.data[0].type];
+                },
+            color: 'black',
+        
+            formatter: (value, context) => {
+              var textLabel = ""
+              if (value.id == 0 && (value.type == 'b' || value.type == 'w'  )){
+              
+                  textLabel = value.name
+               }
+
+               if (value.id == 1 && (value.type == 's')){
+              
+                textLabel = value.name
+             }
+            return textLabel
+          },
+          rotation: 90,
+          font: [{
+           weight: 'bold',
+           size: 8,
+           family: "Helvetica"
+         
+          }]
+    
+          
+        }
+      },
+        layout: {
+            padding: 10
+
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+             display: true,
+            text: 'Pks From Ramal Metro to Facatativa'
+           }
+
+          } , 
+          y: {
+            type: 'time',
+            time: {
+                unit: 'month',
+            },
+            beginAtZero: false,
+            min: '2023-02-24 00:00:00',
+            max: '2026-12-24 00:00:00',
+            
+          }
+        }
+      },
+      plugins:[ChartDataLabels, successTracker]
+    }
+
+    
+   function thickLine(datasetIndex, lineThickness) {
+    if (datasetIndex>=0) {
+      myChart.config.data.datasets[datasetIndex].borderWidth = lineThickness
+    } else {
+
+        myChart.config.data.datasets.map(e =>{
+        e.borderWidth = 1.5
+        })
+        
+      }
+
+    myChart.update()
+    }
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+
+function exportToPDF() {
+      const canvas = document.getElementById('myChart');
+      const canvasImg = canvas.toDataURL('image/png', 1.0);
+
+      let pdf = new jsPDF('landScape');
+      pdf.setFontSize(20)
+      pdf.addImage(canvasImg, 'JPEG', 15, 15, 280, 150);
+      pdf.text(15,15,'Diagram Project')
+      pdf.save('diagram.pdf');
+    }
+ 
+    function exportToPNG() {
+
+      const imgLink = document.createElement('a')
+      const canvasPng = document.getElementById('myChart');
+      imgLink.download = 'diagram.png'
+      imgLink.href = canvasPng.toDataURL('image/png', 1)
+
+
+
+        imgLink.click()
+      const canvasPngImg = canvas.toDataURL('image/jpeg', 1.0);
+
+
+    }
+    </script>
+
+  </body>
+</html>

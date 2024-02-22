@@ -14,6 +14,7 @@ const qr = require('qrcode')
 const areas = require('./public/json/areas.json')
 const sections = require('./public/json/sections.json');
 const scatterData = require('./public/json/diagrama.json');
+const schedule = require('./public/json/schedule.json');
 const { register } = require('module');
 
 
@@ -42,6 +43,15 @@ router.get('/getmovies', (req, res) => {
     res.setHeader('Content-type','text/json')
     res.send(file)
 })
+
+router.get('/diagram', (req, res) => {
+    res.render('Diagram', { title: 'SPACE-TIME DIAGRAM', areas: areas, scatterData: scatterData, sections: sections})
+})
+
+router.get('/schedule', (req, res) => {
+    res.render('Gantt', { title: 'SCHEDULE PROJECT', areas: areas, schedule: schedule, sections: sections})
+})
+
 
 router.post('/new', (req, res) => {
     res.setHeader('Content-type','text/html')
@@ -76,7 +86,7 @@ router.post('/new', (req, res) => {
 areas.forEach(element => {
     
     router.get(`/${element.area}`, (req, res) => {
-        res.render(element.area, { title: element.area, areas: areas, color: element.coloricon, scatterData: scatterData})
+        res.render(element.area, { title: element.area, areas: areas, color: element.coloricon, scatterData: scatterData, sections: sections})
     })
 });
 

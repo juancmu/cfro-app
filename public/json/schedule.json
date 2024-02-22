@@ -1,0 +1,166 @@
+[
+ {
+  "Activity Name": "SEGUIMIENTO LB 1 PROYECTO REGIOTRAM DE OCCIDENTE OtroSi # 6 - V11 Rev 8 31-Ene-2024",
+  "Original Duration": 1909,
+  "BL Project Start": "06\/24\/2020",
+  "BL Project Finish": "11\/24\/2026",
+  "Start": "24-06-2020 A",
+  "Finish": "04\/17\/2027",
+  "planeado": 0.0842,
+  "ejecutado": 0.0786
+ },
+ {
+  "Activity Name": "  Etapa Preoperativa \/ Preoperative Stage",
+  "Original Duration": 1909,
+  "BL Project Start": "06\/24\/2020",
+  "BL Project Finish": "11\/24\/2026",
+  "Start": "24-06-2020 A",
+  "Finish": "04\/17\/2027",
+  "planeado": 0.0842,
+  "ejecutado": 0.0786
+ },
+ {
+  "Activity Name": "Inicio Etapa Preoperativa",
+  "Original Duration": 0,
+  "BL Project Start": "06\/24\/2020",
+  "BL Project Finish": "06\/24\/2020",
+  "Start": "24-06-2020 A",
+  "planeado": 1,
+  "ejecutado": 1
+ },
+ {
+  "Activity Name": "Inicio periodo de suspensión",
+  "Original Duration": 0,
+  "BL Project Start": "08\/31\/2021",
+  "BL Project Finish": "08\/31\/2021",
+  "Start": "31-08-2021 A",
+  "planeado": 1,
+  "ejecutado": 1
+ },
+ {
+  "Activity Name": "Suscripción Otrosí N°2",
+  "Original Duration": 0,
+  "BL Project Start": "01\/18\/2022",
+  "BL Project Finish": "01\/18\/2022",
+  "Start": "18-01-2022 A",
+  "planeado": 1,
+  "ejecutado": 1
+ },
+ {
+  "Activity Name": "Suscripción Otrosí N°3",
+  "Original Duration": 0,
+  "BL Project Start": "05\/06\/2022",
+  "BL Project Finish": "05\/06\/2022",
+  "Start": "06-05-2022 A",
+  "planeado": 1,
+  "ejecutado": 1
+ },
+ {
+  "Activity Name": "Suscripción Otrosí N°6",
+  "Original Duration": 0,
+  "BL Project Start": "04\/24\/2023",
+  "BL Project Finish": "04\/24\/2023",
+  "Start": "24-04-2023 A",
+  "planeado": 1,
+  "ejecutado": 1
+ },
+ {
+  "Activity Name": "Fin Fase Preoperativa",
+  "Original Duration": 0,
+  "BL Project Start": "11\/24\/2026",
+  "BL Project Finish": "11\/24\/2026",
+  "Finish": "04\/17\/2027",
+  "planeado": 0,
+  "ejecutado": 0
+ },
+ {
+  "Activity Name": "    Finalización Unidades de Ejecución \/ Execution Units Finish Milestones",
+  "Original Duration": 751,
+  "BL Project Start": "08\/02\/2023",
+  "BL Project Finish": "05\/23\/2026",
+  "Start": "02\/13\/2024",
+  "Finish": "10\/15\/2026",
+  "planeado": 0,
+  "ejecutado": 0
+ },
+ {
+  "Activity Name": "    Fase Previa \/ Previous Stage",
+  "Original Duration": 1031,
+  "BL Project Start": "06\/24\/2020",
+  "BL Project Finish": "11\/24\/2023",
+  "Start": "24-06-2020 A",
+  "Finish": "02\/28\/2024",
+  "planeado": 1,
+  "ejecutado": 0.9971
+ },
+ {
+  "Activity Name": "    Diseño de Estaciones Elevadas (Otro sí 3) \/ Elevated Stations Design",
+  "Original Duration": 387,
+  "BL Project Start": "05\/11\/2022",
+  "BL Project Finish": " ",
+  "Start": "11-05-2022 A",
+  "Finish": "02\/12\/2024",
+  "planeado": 1,
+  "ejecutado": 0.997
+ },
+ {
+  "Activity Name": "    Taller ANI",
+  "Original Duration": 561,
+  "BL Project Start": "06\/23\/2022",
+  "BL Project Finish": "04\/06\/2024",
+  "Start": "24-01-2022 A",
+  "Finish": "07\/11\/2024",
+  "planeado": 0.9869,
+  "ejecutado": 0.962
+ },
+ {
+  "Activity Name": "    Construcción del Taller el Corzo \/ El Corzo Workshop Construction",
+  "Original Duration": 961,
+  "BL Project Start": "10\/24\/2022",
+  "BL Project Finish": "05\/13\/2026",
+  "Start": "24-10-2022 A",
+  "Finish": "04\/20\/2026",
+  "planeado": 0.0615,
+  "ejecutado": 0.0882
+ },
+ {
+  "Activity Name": "    Gestion social y Ambiental \/ Social & Environmental Management",
+  "Original Duration": 1700,
+  "BL Project Start": "06\/24\/2020",
+  "BL Project Finish": "11\/10\/2026",
+  "Start": "24-06-2020 A",
+  "Finish": "01\/06\/2027",
+  "planeado": 0.5719,
+  "ejecutado": 0.5514
+ },
+ {
+  "Activity Name": "    Actividades Preliminares de Construcción \/ Preliminaries Construction Works",
+  "Original Duration": 199,
+  "BL Project Start": "08\/09\/2023",
+  "BL Project Finish": "02\/01\/2024",
+  "Start": "04-09-2023 A",
+  "Finish": "07\/22\/2024",
+  "planeado": 1,
+  "ejecutado": 0.0164
+ },
+ {
+  "Activity Name": "    Fase de Construcción \/ Construction Stage",
+  "Original Duration": 818,
+  "BL Project Start": "11\/24\/2023",
+  "BL Project Finish": "05\/23\/2026",
+  "Start": "14-11-2023 A",
+  "Finish": "10\/15\/2026",
+  "planeado": 0.0035,
+  "ejecutado": 0.0005
+ },
+ {
+  "Activity Name": "    Fase de Marcha Blanca \/ White March Stage",
+  "Original Duration": 149,
+  "BL Project Start": "05\/25\/2026",
+  "BL Project Finish": "11\/24\/2026",
+  "Start": "15-10-2026 A",
+  "Finish": "04\/17\/2027",
+  "planeado": 0,
+  "ejecutado": 0
+ }
+]
