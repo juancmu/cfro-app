@@ -1,0 +1,70 @@
+[
+ {
+  "id": 1,
+  "obs": "AZTECA"
+ },
+ {
+  "id": 2,
+  "obs": "CENIT"
+ },
+ {
+  "id": 3,
+  "obs": "CLARO"
+ },
+ {
+  "id": 4,
+  "obs": "EAAAM"
+ },
+ {
+  "id": 5,
+  "obs": "EAAB"
+ },
+ {
+  "id": 6,
+  "obs": "EAF"
+ },
+ {
+  "id": 7,
+  "obs": "EAMOS"
+ },
+ {
+  "id": 8,
+  "obs": "EMAAF"
+ },
+ {
+  "id": 9,
+  "obs": "ENEL"
+ },
+ {
+  "id": 10,
+  "obs": "ETB"
+ },
+ {
+  "id": 11,
+  "obs": "MEDIACOMMERCE"
+ },
+ {
+  "id": 12,
+  "obs": "MOVISTAR"
+ },
+ {
+  "id": 13,
+  "obs": "TGI"
+ },
+ {
+  "id": 14,
+  "obs": "TIGO-UNE"
+ },
+ {
+  "id": 15,
+  "obs": "TRIPLE A"
+ },
+ {
+  "id": 16,
+  "obs": "UFINET"
+ },
+ {
+  "id": 17,
+  "obs": "VANTI"
+ }
+]

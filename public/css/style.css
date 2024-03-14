@@ -80,6 +80,10 @@
 
     color: var(--magenta);
 }
+.text-yellow-live{
+
+    color: var(--yellow-live);
+}
 
 
 
@@ -135,6 +139,9 @@
 /* borders */
 .bd-pink{
     border: 3px solid var(--pink);  
+}
+.bd-yellow-live{
+    border: 3px solid var(--yellow-live);  
 }
 
 
@@ -210,6 +217,10 @@
 
     border: 3px solid  var(--light);
 }
+.bd-yellow-live{
+
+    border: 3px solid  var(--yellow-live);
+}
 
 
 .hover-danger:hover, .hover-danger.active{
@@ -279,6 +290,10 @@
 .hover-gray-dark:hover, .hover-gray-dark.active{
 
     background: var(--gray-dark);
+}
+.hover-yellow-live:hover, .hover-yellow-live.active{
+
+    background: var(--yellow-live);
 }
 
 

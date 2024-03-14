@@ -1,0 +1,126 @@
+
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+</style>
+
+<script>
+
+
+var dataCrfo = <%- JSON.stringify(typeNetwork); %>
+
+  console.log(dataCrfo);
+
+
+
+</script>
+
+
+<h2>Section <%= sectionParam %> Interferences by Areas </h2>
+
+<table border="5px"  class="bg-secondary w-100">
+
+<% dataAreasDB = [] %>
+<% areasOp = areas.filter(element => element.sectionInfo === true) %>
+
+
+<% areasOp.forEach(e => { dataAreasDB[e.area] = data.filter(element => element.area == e.area); %>
+
+
+   
+
+   
+
+    <tr>
+
+        <td><h4 class="text-<%= e.coloricon  %>"><%= e.area  %> </button></h4></td>
+
+        <td>Number of <%=e.spec %>: <%=dataAreasDB[e.area].length%>  </td>
+        
+        <td><button onclick="toggleCellVisibility('<%= e.area  %>')"><h6> Details </h6></td>
+    </tr>
+    <td colspan="3">
+        <table class="bd-<%= e.coloricon  %> " id="<%= e.area  %>" style="display: none;">
+
+         
+            <% if (e.area === 'Utilities') {  %>
+                 <% utilitie = [] %>
+                 <tr>
+                    <th><h5>COMPANY</h5></th>
+                    <th><h5>NUMBER OF INTERFERENCES</h5></th>
+                 </tr>
+                    <% typeNetwork.forEach(el => {  %>
+                       
+                     <%   interferences = dataAreasDB[e.area].filter(element => element.obs == el.obs) %>
+                   
+                     <%   if (interferences.length>0) { %>
+                     <tr>
+                       
+                        <td><h6><%= el.obs  %></h6></td>
+                        <td><%= interferences.length %></td>
+                        
+                    </tr>
+                    <% } %>
+                        <% } )%>
+                        <%=   console.log(salida.length); %>
+            <% } %>
+
+            <% if (e.area === 'Lands') { dataAreasDB[e.area].forEach(el => {  %>
+                    
+                                       
+                <tr>
+                    
+                    <td><%= el.id_area %></td>
+                    <td>nested table C2</td>
+                    <td>nested table C2</td>
+                    </tr>
+                    
+        <%}) } %>
+            
+            
+     
+     
+        </table>
+        </td>
+
+<% });  %>
+
+
+
+
+
+    <tr>
+ 
+    
+    </tr>
+ 
+
+    </table>
+
+<script>
+function toggleCellVisibility(tableNested) {
+    // var cell1 = document.getElementById("optionsCell");
+    var cell2 = document.getElementById(tableNested);
+
+    // Toggle visibility
+    if (cell2.style.display == "none") {
+        
+        cell2.style.display = "block";
+    } else {
+       
+        cell2.style.display = "none";
+    }
+}
+</script>
+
+<script src="/../js/sections.js"></script>
+
+</body>
+

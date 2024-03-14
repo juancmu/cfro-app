@@ -17,9 +17,11 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // Static Files
 app.use(express.static('public'))
-app.use('/css', express.static(__dirname + 'public/css'))
-app.use('/js', express.static(__dirname + 'public/js'))
-app.use('/json', express.static(__dirname + 'public/json'))
+app.use('./css', express.static(__dirname + 'public/css'))
+app.use('./js', express.static(__dirname + 'public/js'))
+app.use('./json', express.static(__dirname + 'public/json'))
+app.use('./lib', express.static(__dirname + 'public/lib'))
+app.use('./img', express.static(__dirname + 'public/img'))
 
 
 const areas = require('./public/json/areas.json')

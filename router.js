@@ -2,7 +2,7 @@ const { Router } = require('express');
 const nodemailer = require('nodemailer');
 const router = Router();
 const GeoJSON = require('geojson');
-const { Pool } = require('pg'); // call postgres driver
+const pool = require('./db.js')
 const passport = require('passport');
 
 const {DBFFile} = require('dbffile');
@@ -15,6 +15,8 @@ const areas = require('./public/json/areas.json')
 const sections = require('./public/json/sections.json');
 const scatterData = require('./public/json/diagrama.json');
 const schedule = require('./public/json/schedule.json');
+const typeNetwork = require('./public/json/type_network.json');
+
 const { register } = require('module');
 
 
@@ -28,6 +30,37 @@ router.get('', (req, res) => {
 router.get('/react', (req, res) => {
     res.render('react', { title: 'CFRO DASHBOARD', areas: areas, color: 'text-light', sections: sections})
 })
+
+router.get('/section/:section', async (req, res) => {
+    var sectionParam = req.params.section;
+    // var section = 'utilities';
+
+    // console.log(sectionParam);
+
+    const sectionSelected = sections.find(({ section }) => section === parseInt(sectionParam));
+
+    // console.log(sectionSelected.pk_ini  + '-' + sectionSelected.pk_end);
+    try {
+        client = await pool.connect();
+
+    const result = await client.query(`SELECT * FROM cfro 
+                                    WHERE ((pk_ini > '${sectionSelected.pk_ini}' AND pk_ini < '${sectionSelected.pk_end}')
+                                    OR (pk_end > '${sectionSelected.pk_ini}' AND pk_end < '${sectionSelected.pk_end}'))
+                                    `)
+
+
+    res.render('tablaSalida', { data: result.rows, title: 'TABLE EXAMPLE', areas: areas, color: 'text-light', sections: sections, sectionParam: sectionParam, typeNetwork: typeNetwork})
+    client.release()    
+} catch (err) {
+
+    res.status(500).send('An error occurred while fetching data from the database.');
+        
+
+    }    
+})
+
+
+
 
 
 router.get('/GIS', (req, res) => {
@@ -53,30 +86,17 @@ router.get('/schedule', (req, res) => {
 })
 
 
-router.post('/new', (req, res) => {
-    res.setHeader('Content-type','text/html')
-    const name = req.body.name
-    const rating = req.body.rating
-    
-    // open file
-    let file = fs.readFileSync('./public/json/peliculas.json', 'UTF-8')
 
-    // convert file
+router.get('/section/:idp', (req, res) => {
 
-    let json = JSON.parse(file)
 
-    // insert new register
-
-    json.peliculas.push({"nombre": name, "rating": parseInt(rating)})
-    
-    // save reg
-
-    file = fs.writeFileSync('./public/json/peliculas.json', JSON.stringify(json))
-
-    res.send("data save")
+    var ficha_p = req.params.idp;
+    // const sql = "SELECT * FROM prediospb p JOIN municipios d ON p.cod_mun = d.cod_mun where p.ficha_p = '" + ficha_p + "'"; //SELECT ALL PREDIOS
+    res.render('tablaSalida', {
+        title: 'Table Template', areas: areas, sectionId: ficha_p
+    });
 
 })
-
 
 
 // app.get('/environmental', (req, res) => {

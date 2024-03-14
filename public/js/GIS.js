@@ -12,16 +12,25 @@ var cartoColor = L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y
 //   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 // });
 
-function highlightFeature(e) {
-    var layer = e.target;
-    layer.setStyle({
-        weight: 8, // Adjust these styles as needed
-        color: 'rgb(7, 224, 249)', // Change the color to your highlight color
-    });
 
-    // Access the feature's attribute (e.g., 'name') and display it in the popup
-    
+
+
+const highlightOn = (feature, layer, nameLayer) =>
+  {
+     layer.on({
+      mouseover:  function(e) {
+                    var layer = e.target;
+                    layer.setStyle({
+                    weight: 8, // Adjust these styles as needed
+                    color: 'rgb(7, 224, 249)', // Change the color to your highlight color
+        });
+      },
+      mouseout: function(e) {
+      nameLayer.resetStyle(e.target);
+  }
+     });
 }
+
 
 googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
     maxZoom: 24,
@@ -123,41 +132,6 @@ map = L.map("map", {
 
     // Load the JSON data using jQuery's $.getJSON() method
   
-var landsNetworks = L.geoJson(null, {
-  style: function (feature) {
-    return {
-      color: 'black',
-      weight: 3,
-      opacity: 1,
-      
-    };
-  },
-  onEachFeature: function sss(feature, layer) {
-
-    var labelsS = L.marker(layer.getBounds().getCenter(), {
-      icon: L.divIcon({
-        className: 'my-label-class',
-        html: feature.properties.ID
-      })
-    })
-  
-    map.on('mousemove', function() {
-    if(map.hasLayer(landsNetworks)){
-    labelsS.addTo(map)
-    }
-    else{
-      map.removeLayer(labelsS)
-      }
-  })
-
-  
-
-}
-});
-
-$.getJSON("data/landsNetworks.geojson", function (data) {
-  landsNetworks.addData(data);
-});
 
 
 var projectLines = L.geoJson(null, {
@@ -174,40 +148,23 @@ $.getJSON("data/projectLine.geojson", function (data) {
   projectLines.addData(data);
 });
 
-var inviasColors = {
-  "0": "#F50404", "1": "#08F504", "2": "#da6572", "3": "#E63D09",
-  "4": "#AB1326", "5": "#rgb(221, 69, 69)", "7": "#ce06cb", "A": "#fd9a00", "C": "#fd9a00",
-  "E": "#fd9a00", "SI": "#fd9a00", "H": "#fd9a00", "Air": "#ffff00", "B": "#ffff00",
-  "D": "#ffff00", "F": "#ffff00", "M": "#ffff00", "G": "#9ace00", "FS": "#6e6e6e",
-  "GS": "#6e6e6e", "J": "#976900", "Z": "#976900", "L": "#969696", "N": "#ffff00",
-  "Q": "#ffff00", "R": "#ffff00"
-};
 
-
-var inviasLands = L.geoJson(null, {
+var redLineV2 = L.geoJson(null, {
   style: function (feature) {
     return {
-      color: inviasColors[feature.properties.FID],
+      color: '#6D0A16',
       weight: 3,
-      opacity: 1
-      
+      opacity: 1,
+      dashArray: '10, 10',
     };
-  },
-  onEachFeature: function (feature, layer) {
-    
-    layer.on({
-                mouseover: highlightFeature,
-                mouseout: function(e) {
-                  inviasLands.resetStyle(e.target);
-                }
-            });
+  }
+});
+$.getJSON("data/redLineV2.geojson", function (data) {
+  redLineV2.addData(data);
+});
 
-            layer.bindPopup('<b>' + feature.properties.Layer + '</b><p>' + feature.properties.RefName +'</p><br>' + feature.properties.OBS); 
-}
-});
-$.getJSON("data/invias.geojson", function (data) {
-  inviasLands.addData(data);
-});
+
+
 
 
 var newArchPol = L.geoJson(null, {
@@ -221,12 +178,7 @@ var newArchPol = L.geoJson(null, {
   },
   onEachFeature: function (feature, layer) {
     
-    layer.on({
-                mouseover: highlightFeature,
-                mouseout: function(e) {
-                  newArchPol.resetStyle(e.target);
-                }
-            });
+            highlightOn(feature,layer,newArchPol)           
             let aream2 = feature.properties.Aream2.toFixed(2)
             layer.bindPopup("Punto: " + feature.properties.id + "<br>Area:" + aream2 + " m2"); 
 }
@@ -575,11 +527,30 @@ $.getJSON("data/gasProy.geojson", function (data) {
   gasProy.addData(data);
 });
 
+var environLine = L.geoJson(null, {
+  style: function (feature) {
+    return {
+      color: '#ffff00',
+      weight: 3,
+      opacity: 1,
+      dashArray: '8, 8',
+    };
+  }
+});
+$.getJSON("data/envLine.geojson", function (data) {
+  environLine.addData(data);
+});
+
+var networksColors = {
+  "BUILDING AND LAND": "#107BAD", "PUBLIC ZONE": "#fd9a00", "ONLY LAND": "#ffff00"
+};
+
+
 
 var landsNetworks = L.geoJson(null, {
   style: function (feature) {
     return {
-      color:  "green",
+      color:  networksColors[feature.properties.tipo],
       opacity: 1,
       weight: 2,
 
@@ -603,6 +574,9 @@ var landsNetworks = L.geoJson(null, {
           map.removeLayer(labelsS)
           }
       })
+     highlightOn(feature,layer,landsNetworks)
+     let dateDel =  (feature.properties.ACT==1) ? "24-8-2024" : "Act no Signed"
+    layer.bindPopup('<b>' + "UTILITIES LAND" + '</b><p>' + feature.properties.tipo +'</p><br>' + "DeadLine Deliver: " + dateDel); 
     
       
     
@@ -628,12 +602,7 @@ var cenit2022 = L.geoJson(null, {
   },
   onEachFeature: function (feature, layer) {
     
-    layer.on({
-                mouseover: highlightFeature,
-                mouseout: function(e) {
-                  cenit2022.resetStyle(e.target);
-                }
-            });
+    highlightOn(feature,layer,cenit2022)
 
             layer.bindPopup(feature.properties.RefName); 
 }
@@ -745,18 +714,92 @@ $.getJSON("data/AramaLine.geojson", function (data) {
 
 
 
+
+
+function landsTableInfo(feature, layer) {
+  if (feature.properties) {
+
+    pkSI = feature.properties.PK_INI.split(",");
+      pkSF = feature.properties.PK_END.split(",");
+
+     let prsArray = (prs, prsLenglth) => {
+        prsText = { "1": "0+00" + prs,
+                    "2": "0+0" + prs,
+                    "3": "0+" + prs,
+                    "4": prs.substring(0, 1) + "+" + prs.substring(1, 5),
+                    "5": prs.substring(0, 2) + "+" + prs.substring(2, 5)
+          } ; 
+      return  prsText[prsLenglth];
+    }
+// asign date delivered
+      (feature.properties.DATE_DEL == null) ? dateDelShort = "No Delivered" : dateDelShort = new Date(feature.properties.DATE_DEL).toString().substring(0, 16)
+
+      var landsColors = {
+        "NO DELIVERED": "red", "NO DELIVERED ONLY LAND": "#ECAAF1", "DEMOLISHED": "#6e6e6e", "DELIVERED ONLY LAND": "#9ace00",
+        "DELIVERED LIST TO DEMOLISH": "GREEN"
+      };
+
+    var content = `<table class='table table-striped table-bordered table-condensed'>
+    <tr><th>ID</th><td>          ${feature.properties.PARCEL_ID}  </td></tr>
+    <tr><th>MUNICIPALITY</th><td>${feature.properties.MUNICIPIO}  </td></tr>
+    <tr><th>LAND AREA</th><td>   ${feature.properties.LAND_AREA}  </td></tr>
+    <tr><th>BUILT AREA</th><td>  ${feature.properties.BUILT_AREA} </td></tr>
+    <tr><th>PKS</th><td>  ${prsArray(pkSI[0], pkSI[0].length)} - ${prsArray(pkSF[0], pkSF[0].length)} </td></tr>
+
+    <tr><td><img class='img-parcel' width='250' src='assets/img/parcels/${feature.properties.PARCEL_ID}_01.jpg'></td>
+    <td><img class='img-parcel' width='250' src='assets/img/parcels/${feature.properties.PARCEL_ID}_RG.jpg'></td></tr>
+    <tr><th>DELIVERED DATE</th><td>${dateDelShort}</td></tr>
+    <tr><th>STATUS</th><td bgcolor='${landsColors[feature.properties.ESTADO]}'>${feature.properties.ESTADO}</td></tr>
+
+    <table>`;
+
+
+    layer.on({
+      click: function (e) {
+        $("#feature-title").html(feature.properties.PARCEL_ID);
+        $("#feature-info").html(content);
+        $("#featureModal").modal("show");
+
+      }
+    });
+  }
+  layer.on({
+    mouseover: function (e) {
+      var layer = e.target;
+      layer.setStyle({
+        weight: 3,
+        color: "#00FFFF",
+        opacity: 1
+      });
+      if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+      }
+    },
+    mouseout: function (e) {
+      var dd = []
+            landINVIAS = 2
+      dd = [landsEFR,landINVIAS]
+       console.log(dd); 
+      dd[0].resetStyle(e.target);
+    }
+  });
+}
+
+
+
+
 var landsColors = {
-  "NO DELIVERED": "red", "NO DELIVERED ONLY LAND": "#ECAAF1", "DEMOLISHED": "#6e6e6e", "DELIVERED ONLY LAND": "#9ace00",
+  "NO DELIVERED": "red", "DELIVERED": "green", "DEMOLISHED": "#6e6e6e", "DELIVERED ONLY LAND": "#9ace00",
   "DELIVERED LIST TO DEMOLISH": "GREEN"
 };
 
 
 
-
-var lands = L.geoJson(null, {
+var landsEFR = L.geoJson(null, {
   style: function (feature) {
     return {
-      color:  landsColors[feature.properties.ESTADO],
+      // color:  "green",
+      color:  landsColors[feature.properties.EFR_ENTRG],
       opacity: 1,
       weight: 2,
       clickable: true
@@ -769,19 +812,29 @@ var lands = L.geoJson(null, {
             html: feature.properties.PARCEL_ID
           })
         })  
+
         map.on('mousemove', function() {
-        if(map.hasLayer(lands)){
+        if(map.hasLayer(landsEFR)){
           labelsS.addTo(map)
         }
         else{
           map.removeLayer(labelsS)
           }
       })
+      
+      highlightOn(feature, layer, landsEFR);
+ 
+      // POPUP INFO
+      let titleLabel =  (feature.properties.PROPIETARI=="INVIAS") ? "INVIAS LAND " + feature.properties.PARCEL_ID : "EFR LAND " + feature.properties.PARCEL_ID
+      let dateDel =  (feature.properties.EFR_ENTRG=="DELIVERED") ? (new Date(feature.properties.DATE_DEL)).toDateString() : "No Delivered"
+      layer.bindPopup('<b>' + titleLabel + '</b><br>' + "Date Deliver: " + dateDel); 
     }
 });
 
-$.getJSON("data/lands.geojson", function (data) {
-  lands.addData(data);
+
+
+$.getJSON("data/landsEFR.geojson", function (data) {
+  landsEFR.addData(data);
 });
 
 var Bridges = L.geoJson(null, {
@@ -891,7 +944,20 @@ map.on('click', onMapClick);
   
   window.initialize = initialize;
 
-  var legend = L.control({ position: "bottomleft" });
+var legend = L.control({ position: "bottomleft" });
+
+var prueba = L.control({ position: "bottomright" });
+
+prueba.onAdd = function(map) {
+
+  var div2 = L.DomUtil.create("div", "legend");
+
+ div2.innerHTML += "<div style='display: block'>pruba</div>";
+ return div2;
+}
+
+console.log(prueba);
+prueba.addTo(map);
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create("div", "legend");
@@ -900,18 +966,17 @@ legend.onAdd = function(map) {
   div.innerHTML += "<h4></h4>";
   div.innerHTML += '</div>';
   div.innerHTML += "<div class='author_bio_wrap' style='display: none; background: green'>";
+  
+  div.innerHTML += '<span class="author_bio_wrap">EFR AND INVIAS LANDS<br>';
+  div.innerHTML += '<span class="author_bio_wrap"><span style="color:green; font-size:30px">___</span> Land Delivered</span><br>';
+  div.innerHTML += '<span class="author_bio_wrap"><span style="color:red; font-size:30px">___</span> Land No Delivered</span><br>';
 
-  div.innerHTML += '<span class="author_bio_wrap">WATER SUPPLY<br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:blue; font-size:30px">----</span> Major</span><br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#07ACF4; font-size:30px">----</span> Minor</span><br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:red; font-size:30px">----</span> To Retire</span><br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:blue; font-size:30px">__</span> Major New</span><br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#07ACF4; font-size:30px">__</span> Minor New</span><br>';
   div.innerHTML += '<span class="author_bio_wrap"><br>';
-  div.innerHTML += '<span class="author_bio_wrap">ENERGY<br>';
-
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:yellow; font-size:30px">---</span> Energy Exist</span><br>';
-  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#F4E807; font-size:30px">__</span> Energy New</span><br>';
+  div.innerHTML += '<span class="author_bio_wrap">UTILITIES LANDS<br>';
+  
+  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#ffff00; font-size:30px">___</span> Only Land</span><br>';
+  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#fd9a00; font-size:30px">___</span> Public Land</span><br>';
+  div.innerHTML += '<span class="author_bio_wrap"><span style="color:#107BAD; font-size:30px">___</span> Building and Land</span><br>';
 
   // div.innerHTML += '<span class="author_bio_wrap"><i style="background: #E8E6E0"></i>Residential</span><br>';
   // div.innerHTML += '<span class="author_bio_wrap"><i style="background: #FFFFFF"></i>Ice</span><br>';
@@ -927,6 +992,8 @@ legend.onAdd = function(map) {
 
 // Add the legend to the map
 legend.addTo(map);
+
+
 
 jQuery(document).ready(function($)
 {
@@ -981,6 +1048,10 @@ jQuery(document).ready(function($)
     
   });  
   
+
+  $("#featureModal").on("hidden.bs.modal", function (e) {
+    $(document).on("mouseout", ".feature-row", clearHighlight);
+  });
 });
 
 var baseTree = [
@@ -1007,10 +1078,12 @@ var baseTree = [
                 {label: 'Reference', children: [
                   
 
-                    {label: '0+000 View PKs', layer: pks2},
+                    {label: '0+000 View PKs', layer: pks2, color:'red'},
                     {label: 'Project Line', layer: projectLines},
+                    {label: 'Red Line V2', layer: redLineV2},
                     {label: 'RailTrack', layer: railLine},
                     {label: 'Security Line', layer: securityLine3m},
+                    {label: 'Environmental Line', layer: environLine},
                 ]},
                 {label: 'Utilities Existing', selectAllCheckbox: true, children: [
                     {label: 'Water Supply Exist', layer: acuExist},
@@ -1042,8 +1115,7 @@ var baseTree = [
                 {label: 'Areas',
                 selectAllCheckbox: true, children: [
                     {label: 'Lands Utilities', layer: landsNetworks},
-                    {label: 'Lands EFR', layer: lands},
-                    {label: 'Lands INVIAS', layer: inviasLands},
+                    {label: 'Lands EFR and INVIAS', layer: landsEFR},
                     {label: 'Archeology Areas', layer: newArchPol},
                   
                     

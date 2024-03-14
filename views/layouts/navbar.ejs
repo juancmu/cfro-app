@@ -4,21 +4,12 @@
 
   // console.log(parcelsEFR);
   
-  
-  
-  
   </script>
 
 <!-- Navbar Start -->
-
-
-
-
-
 <% var colors = []  %>
 <% var titles = []  %>
 <% var icons = []  %>
-
 
 <% areas.forEach(element => {  %>
   
@@ -41,7 +32,7 @@
     
   
    <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
-     <img src="img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
+     <img src="/../img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
     </a>
   
     <!-- // dropdown sidebar -->
@@ -49,9 +40,6 @@
       <i class="fa fa-bars"></i>
 
   </a>
-  <!-- <form class="d-none d-md-flex ms-4">
-    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-</form> -->
 
 <div class="navbar-nav align-items-center ms-auto">
   
@@ -65,18 +53,17 @@
 
     <div class="nav-item">
       <a href="/diagram" class="nav-link">
-        <i class="fa-solid fa-globe"></i> 
+        <i class="fa-solid fa-chart-gantt"></i>
         <span class="d-none d-lg-inline-flex">DIAGRAM</span>  
       </a>
     </div>
 
     <div class="nav-item">
       <a href="/schedule" class="nav-link">
-        <i class="fa-solid fa-globe"></i> 
+        <i class="fa-solid fa-diagram-successor"></i>
         <span class="d-none d-lg-inline-flex">SCHEDULE</span>  
       </a>
     </div>
-  
 
   <div class="nav-item dropdown">
       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -101,24 +88,22 @@
     </div>
 </div>
 </div>
-
-  <!-- <form class="d-none d-md-flex ms-4">
-      <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-  </form> -->
   
-  <div class="navbar-nav align-items-center ms-auto">
+
+
+<div class="navbar-nav align-items-center ms-auto">
     <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
       
-    <h2 class="d-none d-md-block">  <%= title  %></h2>
+    <h4 class="d-none d-md-block">  <%= title  %></h4>
 
 
     <%}else{ %>
       
-      <h2 class="text-<%= colors[title] %> d-none d-md-block"> <i class="text-<%= colors[title] %> <%= icons[title] %>"></i> <%- title %> AREA</h2>
+      <h4 class="text-<%= colors[title] %> d-none d-md-block"> <i class="text-<%= colors[title] %> <%= icons[title] %>"></i> <%- title %></h2>
 
     <%};   %>
    </div>
 
   </nav>
-  <h2 class="d-md-none text-<%= colors[title] %>">  <%= title  %></h2>
+  <h4 class="d-md-none text-<%= colors[title] %>">  <%= title  %></h4>
 <!-- Navbar End -->

@@ -10,7 +10,9 @@
    "data_dash_1": "Delivered",
    "value_1": 10,
    "data_dash_2": "Approved",
-   "value_2": 8
+   "value_2": 8,
+   "sectionInfo": true,
+   "spec": "Issues"
   },
   {
    "id": 2,
@@ -23,7 +25,9 @@
    "data_dash_1": "Delivered",
    "value_1": 3,
    "data_dash_2": "Approved",
-   "value_2": 2
+   "value_2": 2,
+   "sectionInfo": true,
+   "spec": "Issues"
   },
   {
    "id": 3,
@@ -36,7 +40,9 @@
    "data_dash_1": "Executed",
    "value_1": 10,
    "data_dash_2": "Pending",
-   "value_2": 5
+   "value_2": 5,
+   "sectionInfo": true,
+   "spec": "Issues"
   },
   {
    "id": 4,
@@ -49,7 +55,9 @@
    "data_dash_1": "Delivered",
    "value_1": 150,
    "data_dash_2": "Approved",
-   "value_2": 100
+   "value_2": 100,
+   "sectionInfo": true,
+   "spec": "Interferences"
   },
   {
    "id": 5,
@@ -57,12 +65,14 @@
    "area_sp": "Tramites y Permisos",
    "color": "blue-light",
    "icon": "fa-solid fa-newspaper",
-   "coloricon": "magenta",
+   "coloricon": "yellow-live",
    "item": "Licences",
    "data_dash_1": "Delivered",
    "value_1": 60,
    "data_dash_2": "Approved",
-   "value_2": 50
+   "value_2": 50,
+   "sectionInfo": true,
+   "spec": "Tramits"
   },
   {
    "id": 6,
@@ -75,7 +85,9 @@
    "data_dash_1": "Received",
    "value_1": 200,
    "data_dash_2": "Pending",
-   "value_2": 30
+   "value_2": 30,
+   "sectionInfo": true,
+   "spec": "Lands"
   },
   {
    "id": 7,
@@ -89,7 +101,9 @@
    "value_1": 100,
    "data_dash_2": "Pending",
    "value_2": 40,
-   "units": "m2"
+   "units": "m2",
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 8,
@@ -103,7 +117,9 @@
    "value_1": 100,
    "data_dash_2": "Pending",
    "value_2": 40,
-   "units": "m2"
+   "units": "m2",
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 9,
@@ -117,7 +133,9 @@
    "value_1": 20,
    "data_dash_2": "Pending",
    "value_2": 20,
-   "units": "Km"
+   "units": "Km",
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 10,
@@ -131,7 +149,9 @@
    "value_1": 1,
    "data_dash_2": "Pending",
    "value_2": 4,
-   "units": "Km"
+   "units": "Km",
+   "sectionInfo": true,
+   "spec": "Bridges"
   },
   {
    "id": 11,
@@ -144,7 +164,9 @@
    "data_dash_1": "Achived",
    "value_1": 2,
    "data_dash_2": "Pending",
-   "value_2": 2
+   "value_2": 2,
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 12,
@@ -158,7 +180,9 @@
    "value_1": 10000000,
    "data_dash_2": "Pending",
    "value_2": 20000000,
-   "units": "USD"
+   "units": "USD",
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 13,
@@ -171,7 +195,9 @@
    "data_dash_1": "Executed",
    "value_1": 20,
    "data_dash_2": "Pending",
-   "value_2": 10
+   "value_2": 10,
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 14,
@@ -185,7 +211,9 @@
    "value_1": 10,
    "data_dash_2": "Pending",
    "value_2": 90,
-   "units": "%"
+   "units": "%",
+   "sectionInfo": false,
+   "spec": "Issues"
   },
   {
    "id": 15,
@@ -199,6 +227,23 @@
    "value_1": 10,
    "data_dash_2": "Pending",
    "value_2": 30,
-   "units": "Km"
+   "units": "Km",
+   "sectionInfo": false,
+   "spec": "Issues"
+  },
+  {
+   "id": 16,
+   "area": "Stations",
+   "area_sp": "Estaciones",
+   "color": "gray-light",
+   "icon": "fa-solid fa-building-wheat",
+   "coloricon": "green-lime",
+   "item": "Station",
+   "data_dash_1": "Built",
+   "value_1": 8,
+   "data_dash_2": "Pending",
+   "value_2": 8,
+   "sectionInfo": true,
+   "spec": "Stations"
   }
  ]

@@ -1,5 +1,5 @@
 {
-  "name": "express-validator-tut",
+  "name": "cfro-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,6 +21,8 @@
     "frappe-gantt": "^0.6.1",
     "fs": "^0.0.1-security",
     "geojson": "^0.5.0",
+    "json-groupby": "^1.1.0",
+    "mdbootstrap": "^4.20.0",
     "nodemailer": "^6.9.8",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",

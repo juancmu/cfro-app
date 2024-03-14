@@ -1,8 +1,6 @@
 
     <!-- Include Leaflet JavaScript -->
-
-
-    <script src="lib/leaflet/leaflet1.7.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="lib/leaflet/leaflet1.7.min.js"  referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="lib/leaflet/leaflet1.7.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="stylesheet" href="lib/leaflet/Leaflet.PolylineMeasure.css" />
@@ -10,13 +8,15 @@
     <link rel="stylesheet" href="css/legend.css">
     
     <script src="lib/leaflet/Leaflet.PolylineMeasure.js"></script>
-
+    
     <link rel="stylesheet" href="lib/leaflet/L.Control.Layers.Tree.css" crossorigin=""/>
     <script src="lib/leaflet/L.Control.Layers.Tree.js"></script>
+ 
 
 
 
-    <div class="navbar-collapse collapse">
+
+    <!-- <div class="navbar-collapse collapse">
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group has-feedback">
           <a class="legend-title" href="#">HIDE LAYERS</a>
@@ -24,7 +24,7 @@
         </div>
       </form>
 
-    </div><!--/.navbar-collapse -->
+    </div>/.navbar-collapse -->
 
     <div class="content-wrapper px-3">
 
@@ -32,6 +32,20 @@
 
     </div>
 
+    <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div style="width: fit-content" class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title text-primary" id="feature-title">hello</h4>
+          </div>
+          <div class="modal-body" id="feature-info"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
   <script src="js/GIS.js"></script>

@@ -4,132 +4,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(54, 162, 235, 1);
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 80%;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style>
+   
   </head>
-  <body>
-
-
-    <script>
-        // ejs vars to js
-      var schedule = <%- JSON.stringify(schedule); %>
-      var sections = <%- JSON.stringify(sections); %>
-      console.log(schedule);
-  </script>
-
-
-
-
-    <div class="chartBox container-fluid">
-        <canvas id="myChart" class="w-100"></canvas>
-    </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <script>
+  <script>
+    // ejs vars to js
+  var schedule = <%- JSON.stringify(schedule); %>
+  var sections = <%- JSON.stringify(sections); %>
+  console.log(schedule);
+</script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
 
     const dataChart = []
-    const taskName = []
-    var datasets = [] 
+    const dataName = []
+    var scheduleData = [] 
     const structures = []
 
-        schedule.map(el => {
-    
-    // const dateSplitFuntion = (dateVar) =>{ 
-    //   dateSplit = dateVar.split("-")
-    //   dateConverted = new Date(`${dateSplit[2]}-${dateSplit[0]}-${dateSplit[1]}`)
-    //   return dateConverted
-    // }
 
-    taskName.push({name: el['Activity Name']}
-    // taskName.push({name: el['cture_spa'], x1: el['pk_ini'], x2: el['pk_end'], y1: dateSplitFuntion(el['ini']), y2: dateSplitFuntion(el['end']), type: el['TYPE'], duration: el['duration']}
-    )  
-    console.log(taskName);
+    schedule.map(el => {
+     
+      
+      scheduleData.push ([el['Activity Name'], el['Activity Name'], null, new Date(el['BL Project Finish']), new Date(el['BL Project Start']), null, el['ejecutado']*100, null])
+      
+      // ['2014Spring', 'Spring 2014', 'spring',
+      //    new Date(2014, 2, 22), new Date(2014, 5, 20), null, 100, null],
+      
     })  
-    // setup 
-    const data = {
-      labels: taskName[0].name,
-      datasets: [{
-        label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
+    
+    console.log(scheduleData);
+    function drawChart() {
+g
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
 
-    // config 
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        indexAxis: 'y',
-        scales: {
-          x: {
-            position: 'top'
-          }, 
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
+      data.addRows(scheduleData);
 
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
+      var options = {
 
-    // Instantly assign Chart.js version
-    const chartVersion = document.getElementById('chartVersion');
-    chartVersion.innerText = Chart.version;
-    </script>
+        height: 900,
+        gantt: {
+          trackHeight: 30
+        },
+       
+      };
 
-  </body>
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="chart_div" class="container-fluid"></div>
+</body>
 </html>

@@ -1,6 +1,17 @@
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
+<div class="container-fluid pt-2 px-2 card bg-transparent">
+  <div class="d-flex align-items-center justify-content-between bg-secondary rounded p-1 card-header">
+  <h5>AREAS</h5>
+    
+  <div class="card-tools p-2">
+    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+      <i class="fas fa-minus"></i>
+    </button>
+  </div>
+</div>
+    <div class="row g-4 card-body"> 
   
+  
+
       
       <% areas.forEach(element => {  %>
         <div class="col-sm-6 col-xl-3">
@@ -19,3 +30,4 @@
         <%               });   %>
     </div>
   </div>
+
