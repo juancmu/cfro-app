@@ -44,9 +44,10 @@ router.get('/section/:section', async (req, res) => {
         client = await pool.connect();
 
     const result = await client.query(`SELECT * FROM cfro 
-                                    WHERE ((pk_ini > '${sectionSelected.pk_ini}' AND pk_ini < '${sectionSelected.pk_end}')
-                                    OR (pk_end > '${sectionSelected.pk_ini}' AND pk_end < '${sectionSelected.pk_end}'))
-                                    `)
+                                    WHERE ((pk_ini >= '${sectionSelected.pk_ini}' AND pk_ini <= '${sectionSelected.pk_end}')
+                                    OR (pk_end >= '${sectionSelected.pk_ini}' AND pk_end <= '${sectionSelected.pk_end}')
+                                    OR (pk_ini <= '${sectionSelected.pk_ini}' AND pk_end >= '${sectionSelected.pk_end}')
+                                    )`)
 
 
     res.render('tablaSalida', { data: result.rows, title: 'TABLE EXAMPLE', areas: areas, color: 'text-light', sections: sections, sectionParam: sectionParam, typeNetwork: typeNetwork})
