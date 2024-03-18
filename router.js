@@ -33,6 +33,9 @@ router.get('/react', (req, res) => {
 
 router.get('/section/:section', async (req, res) => {
     var sectionParam = req.params.section;
+ 
+
+    console.log(sectionParam);
     // var section = 'utilities';
 
     // console.log(sectionParam);
@@ -42,15 +45,17 @@ router.get('/section/:section', async (req, res) => {
     // console.log(sectionSelected.pk_ini  + '-' + sectionSelected.pk_end);
     try {
         client = await pool.connect();
+        pk_ini = sectionSelected.pk_ini
+        pk_end = sectionSelected.pk_end
 
-    const result = await client.query(`SELECT * FROM cfro 
-                                    WHERE ((pk_ini >= '${sectionSelected.pk_ini}' AND pk_ini <= '${sectionSelected.pk_end}')
-                                    OR (pk_end >= '${sectionSelected.pk_ini}' AND pk_end <= '${sectionSelected.pk_end}')
-                                    OR (pk_ini <= '${sectionSelected.pk_ini}' AND pk_end >= '${sectionSelected.pk_end}')
-                                    )`)
+    const result = await client.query(`SELECT * FROM cfro
+    WHERE ((pk_ini >= '${pk_ini}' AND pk_ini <= '${pk_end}')
+    OR (pk_ini <= '${pk_ini}' AND pk_end >= '${pk_end}')
+    OR (pk_end >= '${pk_ini}' AND pk_end <= '${pk_end}')
+    )`);
 
 
-    res.render('tablaSalida', { data: result.rows, title: 'TABLE EXAMPLE', areas: areas, color: 'text-light', sections: sections, sectionParam: sectionParam, typeNetwork: typeNetwork})
+    res.render('tablaSalida', { data: result.rows, title: 'AREAS', areas: areas, color: 'text-light', sections: sections, sectionParam: sectionParam, typeNetwork: typeNetwork, pk_ini: pk_ini, pk_end: pk_end})
     client.release()    
 } catch (err) {
 
@@ -61,6 +66,66 @@ router.get('/section/:section', async (req, res) => {
 })
 
 
+
+router.post('/section', async (req, res) => {
+    var pk_ini = req.body.pk_ini || 0;
+    var pk_end = req.body.pk_end || 39660;
+    var sectionParam = req.body.section || 200;
+    
+
+    console.log(pk_ini);
+    console.log(pk_ini);
+    console.log(sectionParam);
+    const sectionSelected = sections.find(({ section }) => section === parseInt(sectionParam));
+    try {
+
+        if (sectionParam != 200 ) { 
+            pk_ini = sectionSelected.pk_ini
+            pk_end = sectionSelected.pk_end 
+        } 
+
+    client = await pool.connect();
+    const result2 = await client.query(`SELECT * FROM cfro
+            WHERE ((pk_ini >= '${pk_ini}' AND pk_ini <= '${pk_end}')
+            OR (pk_ini <= '${pk_ini}' AND pk_end >= '${pk_end}')
+            OR (pk_end >= '${pk_ini}' AND pk_end <= '${pk_end}')
+            )`);
+    res.render('tablaSalida', { data: result2.rows, title: 'AREAS', areas: areas, color: 'text-light', sections: sections, sectionParam: sectionParam, typeNetwork: typeNetwork, pk_ini: pk_ini, pk_end: pk_end})
+    client.release()    
+
+} catch (err) {
+
+    res.status(500).send('An error occurred while fetching data from the database.');
+        
+
+    }    
+})   
+
+
+router.get('/section', async (req, res) => {
+    
+    pk_ini = 0
+    pk_end = 39660
+    
+    sectionParam = req.params.section;
+
+    console.log("hh" + sectionParam);
+
+    try {
+    client = await pool.connect();
+    const result2 = await client.query(`SELECT * FROM cfro`);
+    res.render('tablaSalida', { data: result2.rows, title: 'AREAS', areas: areas, color: 'text-light', sections: sections, sectionParam: 300, typeNetwork: typeNetwork, pk_ini: pk_ini, pk_end: pk_end})
+    client.release()    
+
+} catch (err) {
+
+    res.status(500).send('An error occurred while fetching data from the database.');
+        
+
+    }    
+})  
+
+  
 
 
 

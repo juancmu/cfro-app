@@ -16,18 +16,54 @@
 
 var areas = <%- JSON.stringify(areas); %>
 var sectionParam2 = <%- sectionParam; %>
+var pk_ini = <%- JSON.stringify(pk_ini);  %>
+var pk_end = <%- JSON.stringify(pk_end);  %>
 var data = <%- JSON.stringify(data);  %>
-
 
 
 
 </script>
 
+<div id="titleText"></div>
 
-<h2>Section <%= sectionParam %> Interferences by Areas </h2>
+<table class="text-red-deep bg-dark">
+<tr><td>
 
-<div id="tableContainer"></div>
+    <form action="/section" method="POST">
+        <label>Section</label>
+        
+        <select name="section" type="number" id="section">
+            
+            <% for (i=1; i<=18; i++) {%>
+                <option value=<%= i %>><%= i %></option>
+                <% } %>
+                
+                
+            </select>
+            <button type="submit" class="btn btn-primary">Go to Section</button>
+        </form>
+        </td><td>
+        <form action="/section" method="POST">
+            <label>Pk Initial</label>
+            <input type="number" id="pk_ini" name="pk_ini">
+            <label>Pk End</label>
+            <input type="number" id="pk_end" name="pk_end">
+            <button type="submit" class="btn btn-warning">Go to PRS</button>
+        </form>
+        <td>
 
+            <a href="/section">
+                <button class="btn btn-info">All Corridor</button>
+            </a>
+        </td>
+    </td></tr>
+</table>
+    
+    <div id="tableContainer"></div>
+    
+    
+    
+        
 
 
 

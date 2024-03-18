@@ -135,7 +135,13 @@
 .bg-magenta{
 
     background: var(--magenta);
+    
 }
+
+.bg-yellow-live{
+    background:  var(--yellow-live);  
+}
+
 /* borders */
 .bd-pink{
     border: 3px solid var(--pink);  
