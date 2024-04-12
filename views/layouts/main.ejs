@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="utf-8">
     <title><%- title %></title>
@@ -35,11 +37,13 @@
 
 
     <!-- Leaflet Assets -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" /> -->
+    <!-- <link href="/../lib/leaflet/MarkerCluster.css" rel="stylesheet">
+    <link href="/../lib/leaflet/MarkerCluster.Default.css" rel="stylesheet"> -->
   
       <!-- React Libraries -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+
 
     <!-- Include jQuery JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -49,6 +53,7 @@
 
 <body>
 
+  
     <div class="container-fluid position-relative d-flex p-0" id="container-body">
 
       <!-- <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -63,7 +68,27 @@
         <div class="content">
           <%- include('../layouts/navbar.ejs') %>
 
+          <script>
 
+            // console.log(window.location.pathname);
+            
+            pathName = window.location.pathname
+            
+            if (pathName != "/") {
+            
+           
+              
+              $('.sidebar, .content').toggleClass("open");
+              
+              if($('.navbar-brand').hasClass("d-lg-none") ){
+                $('.navbar-brand').removeClass("d-lg-none");
+                
+              }
+              
+            }
+              
+            
+            </script>
             <main><%- body %></main>
 
 
@@ -80,6 +105,7 @@
       <!-- JavaScript Libraries -->
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
       <script src="/../lib/easing/easing.min.js"></script>
@@ -88,7 +114,8 @@
       <script src="/../lib/tempusdominus/js/moment.min.js"></script>
       <script src="/../lib/tempusdominus/js/moment-timezone.min.js"></script>
       <script src="/../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-  
+      <!-- <script src="/../lib/leaflet/leaflet.markercluster.js"></script> -->
+
       <!-- Template Javascript -->
       <script src="/../js/main.js"></script>
       <script src="/../js/adminlte.js"></script>

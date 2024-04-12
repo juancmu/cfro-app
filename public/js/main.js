@@ -1,3 +1,4 @@
+
 (function ($) {
     "use strict";
 
@@ -37,7 +38,19 @@
 
     $('.sidebar-toggler').click(function () {
        
+
         $('.sidebar, .content').toggleClass("open");
+        if($('.navbar-brand').hasClass("d-lg-none") ){
+            $('.navbar-brand').removeClass("d-lg-none");
+          
+           } else {
+
+            $('.navbar-brand').toggleClass("d-lg-none");
+
+           }
+  
+
+
 
         
         // if ($('#logo-sidebar-max').hasClass('d-lg-none')) {
@@ -86,32 +99,56 @@
     Chart.defaults.color = "#6C7293";
     Chart.defaults.borderColor = "#000000";
 
+        var idSection = []
 
-    // Worldwide Sales Chart
-    // var ctx1 = $("#worldwide-sales").get(0);
+    for (var j =1; j<=18; j++) {
+        idSection.push(j)
+    }
+    // console.log(idSection);
+    var ctx1 = $("#worldwide-sales").get(0);
     // var myChart1 = new Chart(ctx1, {
     //     type: "bar",
     //     data: {
-    //         labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+    //         labels: idSection,
     //         datasets: [{
-    //                 label: "USA",
+    //                 label: "LANDS",
     //                 data: [15, 30, 55, 65, 60, 80, 95],
     //                 backgroundColor: "rgba(235, 22, 22, .7)"
     //             },
     //             {
-    //                 label: "UK",
+    //                 label: "UTILITIES",
     //                 data: [8, 35, 40, 60, 70, 55, 75],
     //                 backgroundColor: "rgba(235, 22, 22, .5)"
     //             },
     //             {
-    //                 label: "AU",
+    //                 label: "PERMITS",
     //                 data: [12, 25, 45, 55, 65, 70, 60],
-    //                 backgroundColor: "rgba(235, 22, 22, .3)"
+    //                 backgroundColor: "rgba(235, 22, 22, .3 , 23, 45, 67)"
     //             }
     //         ]
     //         },
     //     options: {
-    //         responsive: true
+    //         indexAxis: 'y',
+    //         responsive: true,
+    //         scales: {
+    //             x: {
+    //               stacked: true,
+    //               ticks: {
+    //                 font: {
+    //                     size: 12,
+    //                 }
+    //             }
+    //             },
+    //             y: {
+    //               stacked: true,
+    //               ticks: {
+    //                 font: {
+    //                     size: 7,
+    //                 }
+    //             }
+    //             },
+                
+    //           }
     //     }
     // });
 
@@ -190,16 +227,16 @@
     // var myChart5 = new Chart(ctx5, {
     //     type: "pie",
     //     data: {
-    //         labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+    //         labels: idSection,
     //         datasets: [{
     //             backgroundColor: [
-    //                 "rgba(235, 22, 22, .7)",
-    //                 "rgba(235, 22, 22, .6)",
-    //                 "rgba(235, 22, 22, .5)",
-    //                 "rgba(235, 22, 22, .4)",
-    //                 "rgba(235, 22, 22, .3)"
+    //                 "rgba(235, 2, 22, .7)",
+    //                 "rgba(23, 22, 22, .6)",
+    //                 "rgba(255, 22, 229, .5)",
+    //                 "rgba(235, 244, 229, .4)",
+    //                 "rgba(2, 229, 22, .3)"
     //             ],
-    //             data: [55, 49, 44, 24, 15]
+    //             data: [55, 49, 44, 24, 15,2,6,89,89,90,45,67,89,34,45,67]
     //         }]
     //     },
     //     options: {

@@ -35,6 +35,12 @@
 .text-pink{
     color: var(--pink);
 }
+.text-gray-dark{
+    color: var(--gray-dark);
+}
+
+
+
 
 .text-green-lime{
 
@@ -392,7 +398,7 @@
 }
 
 #logo-sidebar-min {
-    width: 150px;
+    width: 100px;
 
 }
 ::-webkit-scrollbar {

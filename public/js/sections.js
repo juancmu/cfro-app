@@ -340,7 +340,7 @@ areasOp.forEach((e) => {
 
                                                
 
-                            tableHtml += `<table class="table bd-$e.coloricon} w-100 text-end table-borderless" id="lands-${el}" style="display: none;">`
+                            tableHtml += `<table class="table bd-${e.coloricon} w-100 text-end table-borderless" id="lands-${el}" style="display: none;">`
                             
 
                              if ( efrLands.length > 0) {

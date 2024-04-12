@@ -1,10 +1,25 @@
+.container-gis {
+  display: grid; 
+  grid-template-columns: 1fr 6fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "legend map2"; 
+}
+
+.legend { overflow-x: hidden;
+  overflow-y: scroll;}
+/* .map2 { grid-area: map2; } */
+
+
 
 #map {
-  width: auto;
-  height: 90vh;
+  width: 90vh;
+  height: 85vh;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   
 }
+
 
 
 #aboutTabsContent {

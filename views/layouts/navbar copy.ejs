@@ -1,0 +1,117 @@
+<script>
+
+  var parcelsEFR = <%- JSON.stringify(areas); %>
+
+  // console.log(parcelsEFR);
+  
+  </script>
+
+<!-- Navbar Start -->
+<% var colors = []  %>
+<% var titles = []  %>
+<% var icons = []  %>
+
+<% areas.forEach(element => {  %>
+  
+  <% colors[element.area] = element.coloricon %>
+  <% titles[element.area] = element.area %>
+  <% icons[element.area] = element.icon %>
+  <%   });   %>
+  
+  <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+  
+    <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark sticky-top px-4 py-0">
+    
+      <%}else{ %>
+
+        <nav class="navbar navbar-expand nav-round bg-secondary bd-<%= colors[title] %> navbar-dark  px-4 py-0">
+
+
+      <%};  %>
+  
+    
+  
+   <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
+     <img src="/../img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
+    </a>
+  
+    <!-- // dropdown sidebar -->
+  <a href="#" class="sidebar-toggler flex-shrink-0 mx-5 mx-md-2">
+      <i class="fa fa-bars"></i>
+
+  </a>
+
+<div class="navbar-nav align-items-center ms-auto">
+  
+  <div class="nav-item">
+    
+    <a href="/GIS" class="nav-link">
+      <i class="fa-solid fa-globe"></i> 
+      <span class="d-none d-lg-inline-flex">GIS</span>  
+    </a>
+    </div>
+
+    <div class="nav-item">
+    
+      <a href="/section" class="nav-link">
+        <i class="fa-regular fa-square-check"></i> 
+        <span class="d-none d-lg-inline-flex">SECTIONS</span>  
+      </a>
+      </div>
+
+    <div class="nav-item">
+      <a href="/diagram" class="nav-link">
+        <i class="fa-solid fa-chart-gantt"></i>
+        <span class="d-none d-lg-inline-flex">DIAGRAM</span>  
+      </a>
+    </div>
+
+    <div class="nav-item">
+      <a href="/schedule" class="nav-link">
+        <i class="fa-solid fa-diagram-successor"></i>
+        <span class="d-none d-lg-inline-flex">SCHEDULE</span>  
+      </a>
+    </div>
+
+  <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa-regular fa-map"></i>
+          <span class="d-none d-lg-inline-flex">Maps</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+          <a href="#" class="dropdown-item">Map 1</a>
+          <a href="#" class="dropdown-item">Map 2</a>
+          <a href="#" class="dropdown-item">Map 3</a>
+      </div>
+  </div>
+  <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span class="d-none d-lg-inline-flex">Tools</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+        <a href="#" class="dropdown-item">Tool 1 </a>
+        <a href="#" class="dropdown-item">Tool 2 </a>
+        <a href="#" class="dropdown-item">Tool 3 </a>
+    </div>
+</div>
+</div>
+  
+
+
+<div class="navbar-nav align-items-center ms-auto">
+    <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
+      
+    <h4 class="d-none d-md-block">  <%= title  %></h4>
+
+
+    <%}else{ %>
+      
+      <h4 class="text-<%= colors[title] %> d-none d-md-block"> <i class="text-<%= colors[title] %> <%= icons[title] %>"></i> <%- title %></h2>
+
+    <%};   %>
+   </div>
+
+  </nav>
+  <h4 class="d-md-none text-<%= colors[title] %>">  <%= title  %></h4>
+<!-- Navbar End -->

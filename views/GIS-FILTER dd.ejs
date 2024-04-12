@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Filter by Coordinates</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var markers = [
+      { name: "Marker 1", coordinates: [51.505, -0.09] },
+      { name: "Marker add", coordinates: [51.50, -0.09] },
+      { name: "Marker 2", coordinates: [51.51, -0.1] },
+      { name: "Marker 3", coordinates: [51.49, -0.1] }
+      // Add more markers as needed
+    ];
+
+
+
+    var fenceCoords = [
+      [51.5, -0.1],
+      [51.51, -0.1],
+      [51.51, -0.09],
+      [51.5, -0.09]
+      // Add more coordinates to create a fence
+    ];
+
+    var fence2 = L.polygon(fenceCoords, { color: 'red' }).addTo(map);
+
+    console.log(fence2.getBounds())
+
+    // Filter markers based on whether they are within the fence
+    function filterMarkers() {
+      markers.forEach(function(marker) {
+
+        console.log(markers);
+        var point = L.latLng(marker.coordinates[0], marker.coordinates[1]);
+  
+console.log(marker);
+
+        if (fence2.getBounds().contains(point)) {
+         
+          L.marker(marker.coordinates).addTo(map).bindPopup(marker.name);
+        } else {
+          map.removeLayer(marker);
+        }
+      });
+    }
+
+    // Call filterMarkers() initially to show markers within the fence
+    filterMarkers();
+
+    // Call filterMarkers() whenever the map is moved (e.g., dragged or zoomed)
+    // map.on('moveend', filterMarkers);
+  </script>
+</body>
+</html>

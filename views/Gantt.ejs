@@ -1,41 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-   
-  </head>
-  <script>
-    // ejs vars to js
-  var schedule = <%- JSON.stringify(schedule); %>
-  var sections = <%- JSON.stringify(sections); %>
-  console.log(schedule);
-</script>
+<html>
+<head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ 
   <script type="text/javascript">
     google.charts.load('current', {'packages':['gantt']});
     google.charts.setOnLoadCallback(drawChart);
 
-    const dataChart = []
-    const dataName = []
-    var scheduleData = [] 
-    const structures = []
-
-
-    schedule.map(el => {
-     
-      
-      scheduleData.push ([el['Activity Name'], el['Activity Name'], null, new Date(el['BL Project Finish']), new Date(el['BL Project Start']), null, el['ejecutado']*100, null])
-      
-      // ['2014Spring', 'Spring 2014', 'spring',
-      //    new Date(2014, 2, 22), new Date(2014, 5, 20), null, 100, null],
-      
-    })  
-    
-    console.log(scheduleData);
     function drawChart() {
-g
+
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Task ID');
       data.addColumn('string', 'Task Name');
@@ -46,15 +18,32 @@ g
       data.addColumn('number', 'Percent Complete');
       data.addColumn('string', 'Dependencies');
 
-      data.addRows(scheduleData);
+      data.addRows([
+        ['2023Spring', 'Desings', 'spring',
+         new Date(2023, 2, 22), new Date(2023, 5, 20), null, 100, null],
+        ['2023Summer', 'Catenary', 'summer',
+         new Date(2023, 5, 21), new Date(2023, 8, 20), null, 100, null],
+        ['2023Autumn', 'Trails', 'autumn',
+         new Date(2023, 8, 21), new Date(2023, 11, 20), null, 100, null],
+        ['2023Winter', 'Dutc Bank', 'winter',
+         new Date(2023, 11, 21), new Date(2024, 2, 21), null, 100, null],
+        ['2024Spring', 'Roads', 'spring',
+         new Date(2024, 2, 22), new Date(2024, 5, 20), null, 50, null],
+        ['2024Summer', 'Bridges', 'summer',
+         new Date(2024, 5, 21), new Date(2024, 8, 20), null, 0, null],
+        ['2024Autumn', 'Stations', 'autumn',
+         new Date(2024, 8, 21), new Date(2024, 11, 20), null, 0, null],
+        ['2024Winter', 'Intersections', 'winter',
+         new Date(2024, 11, 21), new Date(2026, 2, 21), null, 0, null],
+        ['Football', 'Utilities Movements', 'sports',
+         new Date(2023, 8, 4), new Date(2024, 1, 1), null, 100, null]
+      ]);
 
       var options = {
-
-        height: 900,
+        height: 400,
         gantt: {
           trackHeight: 30
-        },
-       
+        }
       };
 
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
@@ -64,6 +53,6 @@ g
   </script>
 </head>
 <body>
-  <div id="chart_div" class="container-fluid"></div>
+  <div id="chart_div"></div>
 </body>
 </html>

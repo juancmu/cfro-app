@@ -20,9 +20,8 @@
   
   <%if( title == "CFRO DASHBOARD" || title == "GEOGRAPHIC INFORMATION SYSTEM"){%>
   
-    <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark sticky-top px-4 py-0">
-    
-      <%}else{ %>
+    <nav class="navbar navbar-expand nav-round bg-secondary bd-gray-dark navbar-dark sticky-top px-3 py-0">
+          <%}else{ %>
 
         <nav class="navbar navbar-expand nav-round bg-secondary bd-<%= colors[title] %> navbar-dark  px-4 py-0">
 
@@ -30,16 +29,16 @@
       <%};  %>
   
     
-  
-   <a href="/" class="navbar-brand d-flex d-lg-none me-4" id="logo-sidebar-max">
-     <img src="/../img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
-    </a>
-  
-    <!-- // dropdown sidebar -->
-  <a href="#" class="sidebar-toggler flex-shrink-0 mx-5 mx-md-2">
-      <i class="fa fa-bars"></i>
-
-  </a>
+      
+      <!-- // dropdown sidebar -->
+      <a href="#" class="sidebar-toggler flex-shrink-0 mx-5 mx-md-2">
+        <i class="fa fa-bars"></i>
+        
+      </a>
+      
+       <a href="/" class="navbar-brand d-flex d-lg-none me-3" id="logo-sidebar-max">
+         <img src="/../img/logo-red.png" alt="Logo" class="img-fluid rounded " style="opacity: .8" id="logo-sidebar-min">
+        </a>
 
 <div class="navbar-nav align-items-center ms-auto">
   
@@ -51,13 +50,13 @@
     </a>
     </div>
 
-    <div class="nav-item">
+    <!-- <div class="nav-item">
     
       <a href="/section" class="nav-link">
         <i class="fa-regular fa-square-check"></i> 
         <span class="d-none d-lg-inline-flex">SECTIONS</span>  
       </a>
-      </div>
+      </div> -->
 
     <div class="nav-item">
       <a href="/diagram" class="nav-link">

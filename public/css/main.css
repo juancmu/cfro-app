@@ -307,7 +307,7 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 }
 
@@ -4220,7 +4220,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem;
+  /* padding: 0.5rem 0.5rem; */
 }
 
 .navbar .container,
@@ -4681,6 +4681,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  height: 200px;
 }
 
 .card-title {
